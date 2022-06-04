@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+Route::get('/','HomeController@checkUserType');
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 Route::get('/index','PagesController@index');
 Route::get('/coachs','PagesController@coachs');
 Route::get('/planning','PagesController@planning');
@@ -28,3 +29,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/admin/dashboard',function(){
+    return view('admin/dashboard');
+})->name('admin-dashboard');
+Route::get('/client/dashboard',function(){
+    return view('client/dashboard');
+})->name('client-dashboard');
+Route::get('/coach/dashboard',function(){
+    return view('coach/dashboard');
+})->name('coach-dashboard');

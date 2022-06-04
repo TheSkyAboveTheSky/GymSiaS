@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PagesController extends Controller
 {
@@ -14,7 +15,10 @@ class PagesController extends Controller
         return view('planning');
     }
     public function coachs(){
-        return view('coachs');
+        $coachs= User::all();
+        return view('coachs')->with([
+            'coachs'=>$coachs
+        ]);
     }
     
 }

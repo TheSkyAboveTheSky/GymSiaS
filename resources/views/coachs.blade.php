@@ -20,150 +20,26 @@
         <div class="slide-container swiper">
             <div class="slide-content">
                 <div class="card-wrapper swiper-wrapper">
+                    @foreach($coachs as $coach)
+                    @if ($coach->role_id == 1)
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <span class="overlay"></span>
-
+                        
                             <div class="card-image">
-                                <img src="{{url('/images/profile1.jpg')}}" alt="" class="card-img">
+                                <img src="http://127.0.0.1:8000/storage/{{$coach->profile_photo_path}}" alt="" class="card-img">
                             </div>
                         </div>
 
                         <div class="card-content">
-                            <h2 class="name">David Dell</h2>
+                            <h2 class="name">{{$coach->name}}</h2>
                             <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
 
                             <button class="button">Contact The Coach</button>
                         </div>
                     </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile2.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile3.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile4.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile5.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile6.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile7.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile8.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{{url('/images/profile9.jpg')}}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">David Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Coach</button>
-                        </div>
-                    </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
 

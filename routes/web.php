@@ -14,12 +14,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/','HomeController@checkUserType');
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
+Route::get('/bar', function () {
+    return view('layouts.bar');
+});
 Route::get('/index','PagesController@index');
-Route::get('/coachs','PagesController@coachs');
-Route::get('/planning','PagesController@planning');
+Route::get('/coachs','PagesController@coachs')->name('coachs');
+Route::get('/planning','PagesController@planning')->name('planning');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -11,10 +11,11 @@
     <title>MounTor : Planning</title>
   </head>
   <body>
+      <div style="margin-top:60px"></div>
        <!-- Class Timetable Start -->
        <div class="container gym-feature py-5">
         <div class="d-flex flex-column text-center mb-5">
-            <h4 class="text-primary font-weight-bold">MounTor: Planning</h4>
+            <h4 class="font-weight-bold">MounTor: Planning</h4>
             <h4 class="display-4 font-weight-bold">Working Hours and Class Time</h4>
         </div>
         <div class="tab-class">

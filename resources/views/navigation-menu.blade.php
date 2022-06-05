@@ -15,54 +15,7 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                @if (Auth::user()->role_id === 0)
-                    <x-jet-nav-link href="{{ route('coachs') }}" :active="request()->routeIs('coachs')">
-                        {{ __('Coachs List') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Offres') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Seances') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
-                        {{ __('Planning') }}
-                    </x-jet-nav-link>
-                @endif
-                @if (Auth::user()->role_id === 1)
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Coach_dashboard') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Seances') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
-                        {{ __('Planning') }}
-                    </x-jet-nav-link>
-                
-                @endif
-                @if (Auth::user()->role_id === 2)
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Admin') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Seances') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
-                        {{ __('Planning') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('coachs') }}" :active="request()->routeIs('coachs')">
-                        {{ __('Coachs List') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Offres') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
-                        {{ __('Clients List') }}
-                    </x-jet-nav-link>
-                
-                @endif
-            </div>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

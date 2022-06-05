@@ -20,8 +20,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->timestamp('date_debut_abonnement')->nullable();
+            $table->unsignedSmallInteger('duree_abonement_in_months')->nullable();
+            $table->timestamp('abonnement_expired_at')->nullable();
             $table->timestamps();
         });
     }

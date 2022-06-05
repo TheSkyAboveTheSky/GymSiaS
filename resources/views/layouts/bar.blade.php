@@ -29,7 +29,50 @@
                                               <i class="fas fa-solid fa-dumbbell" style="color:red"></i> 
                                               Offres
                                             </a>
-                                            <a href="{{url('/logout')}}">
+                                            <a href="{{url('/login')}}">
+                                              <i class="fas fa-sign-in-alt" style="color:blue"></i>                                              
+                                              Log-out
+                                            </a>
+
+                            @endif
+                            @if (Auth::user()->role_id === 1)
+                            <a href="{{url('/planning')}}">
+                              <i class="fas fa-solid fa-calendar" style="color:yellow"></i>                               
+                                             Planning
+                            </a>
+                            <a href="{{url('/coachs')}}">
+                              <i class="fas fa-regular fa-clipboard-check" style="color:orange"></i>                                          
+                                  Seances                            
+                            </a>
+                            <a href="{{url('/login')}}">
+                              <i class="fas fa-sign-in-alt" style="color:blue"></i>                                              
+                              Log-out
+                            </a>
+
+
+                            @endif
+                            @if (Auth::user()->role_id === 2)
+                                            <a href="{{url('/planning')}}">
+                                              <i class="fas fa-solid fa-calendar" style="color:yellow"></i>                               
+                                              Planning
+                                            </a>
+                                            <a href="{{url('/coachs')}}">
+                                              <i class="fas fa-solid fa-dumbbell" style="color:aqua"></i> 
+                                              Coachs List
+                                            </a>
+                                            <a href="{{url('/coachs')}}">
+                                              <i class="fas fa-regular fa-clipboard-check" style="color:orange"></i>                                          
+                                              Seances                            
+                                            </a>
+                                            <a href="{{url('/coachs')}}">
+                                              <i class="fas fa-solid fa-dumbbell" style="color:red"></i> 
+                                              Offres
+                                            </a>
+                                            <a href="{{url('/clients')}}">
+                                              <i class="fas fa-solid fa-dumbbell" style="color:aqua"></i> 
+                                              Clients List
+                                            </a>
+                                            <a href="{{url('/login')}}">
                                               <i class="fas fa-sign-in-alt" style="color:blue"></i>                                              
                                               Log-out
                                             </a>

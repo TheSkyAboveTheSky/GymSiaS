@@ -24,6 +24,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $date = $this->faker->dateTimeBetween('-2 years' );
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -31,6 +32,9 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'duree_abonement_in_months'=>$this->faker->numberBetween(0,12),
+            'date_debut_abonnement'=>$date,
+            'abonnement_expired_at'=> $date
         ];
     }
 

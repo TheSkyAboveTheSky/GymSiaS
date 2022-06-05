@@ -20,6 +20,7 @@ Route::get('/bar', function () {
 Route::get('/index','PagesController@index');
 Route::get('/coachs','PagesController@coachs')->name('coachs');
 Route::get('/planning','PagesController@planning')->name('planning');
+Route::get('/clients','PagesController@clients')->name('clients');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -29,12 +30,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/admin/dashboard',function(){
-    return view('admin/dashboard');
-})->name('admin-dashboard');
+Route::get('/admin/dashboard','PagesController@getClient')->name('admin-dashboard');
 Route::get('/client/dashboard',function(){
     return view('client/dashboard');
 })->name('client-dashboard');
 Route::get('/coach/dashboard',function(){
     return view('coach/dashboard');
 })->name('coach-dashboard');
+Route::post('/save','PagesController@save');

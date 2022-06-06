@@ -21,6 +21,7 @@ Route::get('/index','PagesController@index');
 Route::get('/coachs','PagesController@coachs')->name('coachs');
 Route::get('/planning','PagesController@planning')->name('planning');
 Route::get('/clients','PagesController@clients')->name('clients');
+Route::get('/offres','PagesController@offres')->name('offres');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,11 +31,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/admin/dashboard','PagesController@getClient')->name('admin-dashboard');
+Route::get('/admin/clients','PagesController@getClient')->name('admin-clients');
+Route::get('/admin/coachs','PagesController@getCoach')->name('admin-coachs');
 Route::get('/client/dashboard',function(){
     return view('client/dashboard');
 })->name('client-dashboard');
 Route::get('/coach/dashboard',function(){
     return view('coach/dashboard');
 })->name('coach-dashboard');
-Route::post('/save','PagesController@save');
+Route::post('/save/client','PagesController@save_client');
+Route::post('/save/coach','PagesController@save_coach');

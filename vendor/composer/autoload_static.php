@@ -605,7 +605,6 @@ class ComposerStaticInitc7baf2c9b07a5d064e89e5ad6b68db82
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
         'App\\Models\\Coach' => __DIR__ . '/../..' . '/app/Models/Coach.php',
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
-        'App\\Models\\Seance' => __DIR__ . '/../..' . '/app/Models/Seance.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

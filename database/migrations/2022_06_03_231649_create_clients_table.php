@@ -14,15 +14,18 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
+            $table->id('client_id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('role')->default(1);
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedSmallInteger('duree_abonement_in_months')->nullable();
+            $table->timestamp('date_debut_abonnement')->nullable();
+            $table->timestamp('abonnement_expired_at')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('Seance_id', 2048)->nullable();
+            $table->string('Salle_id', 2048)->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

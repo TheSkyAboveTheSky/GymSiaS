@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use Carbon\carbon;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,16 +24,23 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $date = $this->faker->dateTimeBetween('-2 years' );
+        $ab = $this->faker->numberBetween(0,12);
+        $num = rand(0,4);
+        $date = Carbon::today()->subYears($num);
+        $exp = Carbon::today()->subYears($num)->addMonths($ab);
+
         return [
+            'role_id'=>0,
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'duree_abonement_in_months'=>$this->faker->numberBetween(0,12),
+            'duree_abonement_in_months'=>$ab,
             'date_debut_abonnement'=>$date,
-            'abonnement_expired_at'=> $date
+            'abonnement_expired_at'=> $exp,
+            'salle_id'=>1,
+            'seance_id'=>1,
         ];
     }
 

@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\Admin;
 
-class UserSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()
-        ->count(25)
-        ->create();
+        //
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <x-guest-layout>
-    <div style="margin-top:40px">
+    <div style="margin-top:100px">
     </div>
     <x-jet-authentication-card>
 
@@ -23,14 +23,14 @@
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
-            <div class="mt-4">
+{{--             <div class="mt-4">
                 <x-jet-label for="role_id" value="{{ __('Register as:') }}" />
                 <select name="role_id" x-model="role" class="block mt-1 w-full border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" :value="old('role_id')" required>
                     <option value="0">Client</option>
                     <option value="1">Coach</option>
                     <option value="2">Admin</option>
                 </select>
-            </div>
+            </div> --}}
             <div class="mt-4">  
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />

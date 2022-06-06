@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRoleIdToUserTable extends Migration
+class Salles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddRoleIdToUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->unsignedSmallInteger('role_id')->nullable();
+        //
+        Schema::create('salles', function (Blueprint $table) {
+                $table->id('salle_id');
+                $table->string('salle_name');
+                $table->string('admin_id');
+                $table->string('adresse');
         });
     }
 
@@ -26,9 +29,7 @@ class AddRoleIdToUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->dropColumn('role_id');
-        });
+        //
+        Schema::dropIfExists('salles');
     }
 }

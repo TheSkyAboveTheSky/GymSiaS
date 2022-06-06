@@ -16,7 +16,7 @@ class SeanceSeeder extends Seeder
     {
         //
         Seance::factory()
-        ->count(100)
+        ->count(10)
         ->create();
     }
 }

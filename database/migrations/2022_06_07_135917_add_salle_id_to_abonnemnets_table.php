@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToSallesTable extends Migration
+class AddSalleIdToAbonnemnetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddUserIdToSallesTable extends Migration
      */
     public function up()
     {
-        Schema::table('salles', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained('users');
-
+        Schema::table('abonnements', function (Blueprint $table) {
+            $table->foreignId('salle_id')->constrained('salles');
         });
     }
 
@@ -26,5 +25,6 @@ class AddUserIdToSallesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('abonnements');
     }
 }

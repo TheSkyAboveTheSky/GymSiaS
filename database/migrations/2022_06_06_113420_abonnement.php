@@ -18,10 +18,6 @@ class Abonnement extends Migration
             $table->id();
             $table->string('duree');
             $table->string('prix');
-            $table->foreignId('salle_id')->constrained('salles');
-
-/*             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
- */
         });
     }
 

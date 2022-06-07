@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Roles extends Migration
+class AddCoachSalleIdToSeancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class Roles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        Schema::table('seances', function (Blueprint $table) {
+            $table->foreignId('coach_id')->constrained('users');
+            $table->foreignId('salle_id')->constrained('salles');
 
+        });
     }
 
     /**
@@ -29,6 +27,6 @@ class Roles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('seances');
     }
 }

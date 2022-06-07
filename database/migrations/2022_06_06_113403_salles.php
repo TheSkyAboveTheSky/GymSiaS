@@ -16,12 +16,9 @@ class Salles extends Migration
         //
         Schema::create('salles', function (Blueprint $table) {
                 $table->id();
-                $table->string('salle_name');
+                $table->string('name');
                 $table->string('adresse');
                 $table->timestamps();
-/*                 $table->foreignId('admin_id')->constrained('users'); */
-/*                 $table->foreignId('user_id')->constrained('users');
- */                
 
         });
     }

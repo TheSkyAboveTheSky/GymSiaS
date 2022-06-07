@@ -23,8 +23,6 @@ class CreateClientsTable extends Migration
             $table->timestamp('date_debut_abonnement')->nullable();
             $table->timestamp('abonnement_expired_at')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('Seance_id', 2048)->nullable();
-            $table->string('Salle_id', 2048)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

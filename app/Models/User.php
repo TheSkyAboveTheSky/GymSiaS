@@ -80,15 +80,28 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
-    public function salles()
+    public function salle()
     {
         return $this->belongsToMany(Salle::class);
     }
-    public function getIsAdminAttribute(){
-        return $this->roles->where('id',2)->exists();
-    }
-    public function salle()
+    public function getIsAdminAttribute()
     {
-        return $this->belongsTo(Salle::class);
+        return $this->roles()->where('id', 2)->exists();
     }
+
+    public function getIsCoachAttribute()
+    {
+        return $this->roles()->where('id', 1)->exists();
+    }
+
+    public function getIsClientAttribute()
+    {
+        return $this->roles()->where('id', 0)->exists();
+    }
+
+    public function CoachSeances()
+    {
+        return $this->hasMany(Seance::class, 'coach_id', 'id');
+    }
+
 }

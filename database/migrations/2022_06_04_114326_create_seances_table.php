@@ -15,14 +15,11 @@ class CreateSeancesTable extends Migration
     {
         Schema::create('seances', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('seance_debut')->nullable();
-            $table->timestamp('seance_fin')->nullable();
-            $table->string('jour');
+            $table->string('weekday');
             $table->text('activite');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
             $table->timestamps();
-            $table->foreignId('coach_id')->constrained('users');
-            $table->foreignId('user_id')->constrained('users');
-
 
         });
     }

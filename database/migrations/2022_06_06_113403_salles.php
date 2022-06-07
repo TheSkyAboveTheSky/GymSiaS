@@ -19,9 +19,9 @@ class Salles extends Migration
                 $table->string('salle_name');
                 $table->string('adresse');
                 $table->timestamps();
-                $table->foreignId('admin_id')->constrained('users');
-                $table->foreignId('user_id')->constrained('users');
-                
+/*                 $table->foreignId('admin_id')->constrained('users'); */
+/*                 $table->foreignId('user_id')->constrained('users');
+ */                
 
         });
     }

@@ -15,7 +15,7 @@ class SalleFactory extends Factory
     {
         return [
             'salle_name'=>'Mwanj',
-            'admin_id'=>1,
+/*             'admin_id'=>1, */
             'adresse'=>'casablanca',
             'user_id'=>1,
         ];

@@ -4,9 +4,12 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          @foreach ($salles as $salle)
+{{--           @foreach ($users as $user)
+              <h2>{{$user->name}}</h2>
+              <p>{{$user->salle->salle_name}}</p> --}}
+              @foreach ($salles as $salle)
               <h2>{{$salle->salle_name}}</h2>
-              <p>{{$salle->user->email}}</p>
+              <p>{{$salle->user->name}}</p>
 {{--                  @foreach ($users as $user)
                     @if($user->id == $salle->user_id)
                         <h2>{{$user->name}}</h2>

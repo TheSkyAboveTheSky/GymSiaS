@@ -39,6 +39,7 @@ class UserFactory extends Factory
             'duree_abonement_in_months'=>$ab,
             'date_debut_abonnement'=>$date,
             'abonnement_expired_at'=> $exp,
+/*             'salle_id'=>1 */
         ];
     }
 

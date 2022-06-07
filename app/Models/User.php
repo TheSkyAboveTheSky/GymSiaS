@@ -89,6 +89,6 @@ class User extends Authenticatable
     }
     public function salle()
     {
-        return $this->hasOne(Salle::class);
+        return $this->belongsTo(Salle::class);
     }
 }

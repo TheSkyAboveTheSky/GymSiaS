@@ -14,13 +14,15 @@ class CreateSeancesTable extends Migration
     public function up()
     {
         Schema::create('seances', function (Blueprint $table) {
-            $table->id('seance_id');
-            $table->string('coach_id');
+            $table->increments('id');
+            $table->bigInteger('coach_id');
             $table->timestamp('seance_debut')->nullable();
             $table->timestamp('seance_fin')->nullable();
             $table->string('jour');
             $table->text('activite');
             $table->timestamps();
+            $table->foreign('coach_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

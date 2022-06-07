@@ -23,6 +23,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
     protected $fillable = [
         'user_id',
         'name',
@@ -43,6 +44,7 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
+
     /**
      * The attributes that should be cast.
      *
@@ -59,5 +61,13 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+    ];
+    protected $dates = [
+        'updated_at',
+        'created_at',
+        'deleted_at',
+        'email_verified_at',
+        'abonnement_expired_at',
+        'abonnement_expired_at,'
     ];
 }

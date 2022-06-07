@@ -15,11 +15,14 @@ class Salles extends Migration
     {
         //
         Schema::create('salles', function (Blueprint $table) {
-                $table->id('salle_id');
+                $table->increments('id');
                 $table->string('salle_name');
-                $table->string('admin_id');
+                $table->bigInteger('admin_id');
                 $table->string('adresse');
                 $table->timestamps();
+
+                $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

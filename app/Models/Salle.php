@@ -14,4 +14,10 @@ class Salle extends Model
         'salle_adresse',
         'adresse',
     ];
+    public function classUsers(){
+        return $this->hasMany(User::class,'salle_id','salle_id');
+    }
+    public function classSalles(){
+        return $this->hasMany(Salle::class,'salle_id','salle_id');
+    }
 }

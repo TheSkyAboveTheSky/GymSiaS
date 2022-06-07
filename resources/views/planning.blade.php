@@ -1,4 +1,5 @@
 @extends("layouts.master")
+<!--------------------- Planning Standar ------------->
 <!DOCTYPE html>
 <html>
   <head>

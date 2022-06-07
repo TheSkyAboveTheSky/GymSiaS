@@ -1,3 +1,4 @@
+<!--------------------- Modal for Clients ------------->
 <div class="modal fade" id="addnew" tableindex="-1" aria-labelledby="addnewModalLabel" area-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -51,3 +52,6 @@
     </div>
   </div>
 </div>
+<!--------------------- Modal for Seances ---------------->
+<!--------------------- Modal for Salles ----------------->
+<!--------------------- Modal for Abonnements------------->

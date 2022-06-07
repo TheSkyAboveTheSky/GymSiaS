@@ -11,7 +11,6 @@ class SalleFactory extends Factory
      *
      * @return array
      */
-    protected $model = Salle::class;
     public function definition()
     {
         return [

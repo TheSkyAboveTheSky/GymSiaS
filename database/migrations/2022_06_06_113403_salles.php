@@ -19,6 +19,7 @@ class Salles extends Migration
                 $table->string('salle_name');
                 $table->string('admin_id');
                 $table->string('adresse');
+                $table->timestamps();
         });
     }
 

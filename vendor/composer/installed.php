@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '78bc1a46a142f314157c7a7fa531e7b76e3a4072',
+    'reference' => 'db72d6ec2669598c03aa1911703504fe02a48d38',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'almasaeed2010/adminlte' => 
+    array (
+      'pretty_version' => 'v3.2.0',
+      'version' => '3.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'bd4d9c72931f1dd28601b6bfb387554a381ad540',
+    ),
     'asm89/stack-cors' => 
     array (
       'pretty_version' => 'v2.1.1',
@@ -449,6 +458,15 @@
       ),
       'reference' => 'daa11c43729510b3700bc34d414664966b03bffe',
     ),
+    'jeroennoten/laravel-adminlte' => 
+    array (
+      'pretty_version' => 'v3.8.2',
+      'version' => '3.8.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0043e3fc962a34f0e8debcf5806751c78e22cb60',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -490,7 +508,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '78bc1a46a142f314157c7a7fa531e7b76e3a4072',
+      'reference' => 'db72d6ec2669598c03aa1911703504fe02a48d38',
     ),
     'laravel/sail' => 
     array (

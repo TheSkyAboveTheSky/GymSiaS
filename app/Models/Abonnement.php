@@ -13,4 +13,7 @@ class Abonnement extends Model
         'salle_id',
         'prix',
     ];
+    public function salle(){
+        return $this->belongsTo(Salle::class,'salle_id');
+    }
 }

@@ -1,54 +1,39 @@
 @extends('admin.dashboard')
 @section('content')
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Coaches</title>
-
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="{{ URL::asset('css/swiper-bundle.min.css') }}" />
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{ URL::asset('css/cards.css') }}" />
-
-                                        
-    </head>
-    <body>
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                        
-                            <div class="card-image">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name"></h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">Contact The Client</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-        
-    </body>
-
-    <!-- Swiper JS -->
-    <script type="text/javascript" src="{{ URL::asset('js/swiper-bundle.min.js') }}"></script>
-
-    <!-- JavaScript -->
-    <script type="text/javascript" src="{{ URL::asset('js/cards.js') }}"></script>
-</html>
+<h1 class="page-header text-center">Abonnement List</h1>
+<div class="row">
+   <div class="col-md-12 col-md-offset-1">
+      <h2>
+         Abonnements Table
+         <button type="button" class="btn btn-primary pull-right" style="background-color:green;float:right" data-bs-toggle="modal" data-bs-target="#addsalle"><i class="fa fa-plus"></i>Abonnement</button>
+      </h2>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-12 col-md-offset-1">
+      <table class="table table-bordered table-responsive table-striped">
+         <thead>
+            <th>Abonnement Id </th>
+            <th>Duree</th>
+            <th>Prix</th>
+            <th>Salle</th>
+            <th>Action</th>
+         </thead>
+         <tbody>
+            @foreach($abonnements as $abonnement)
+                <tr>
+                    <td>{{$abonnement->id}}</td>
+                    <td>{{$abonnement->duree}}</td>
+                    <td>{{$abonnement->prix}}</td>
+                    <td>{{$abonnement->salle->name}}</td>
+                     <td>
+                        <a href="#" class="btn btn-succes" style="background-color:rgb(73, 238, 73)"><i class="fa fa-edit" ></i>Edit</a>
+                        <a href="#"  class="btn btn-danger" style="background-color: red"><i class="fa fa-trash" ></i>Delete</a>
+                     </td>
+               </tr>
+            @endforeach
+         </tbody>
+      </table>
+   </div>
+</div>
 @endsection

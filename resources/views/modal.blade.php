@@ -1,5 +1,5 @@
 <!--------------------- Modal for Clients ------------->
-<div class="modal fade" id="addnew" tableindex="-1" aria-labelledby="addnewModalLabel" area-hidden="true">
+<div class="modal fade" id="addclient" tableindex="-1" aria-labelledby="addnewModalLabel" area-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,6 +16,10 @@
             {!!Form::label('email','Email')!!}
             {!!Form::email('email','',['class' =>'form-control','placeholder'=>'Input email','required'])!!}
           </div>
+          <div class="mb-3">
+            {!!Form::label('salle','Salle')!!}
+            {!!Form::number('salle','',['class' =>'form-control','placeholder'=>'Input Salle','required'])!!}
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color:grey"><i class="fa fa-times">Cancel</i></button>
@@ -26,7 +30,7 @@
   </div>
 </div>
 <!--------------------- Modal for Coachs ------------->
-<div class="modal fade" id="addnew2" tableindex="-1" aria-labelledby="addnewModalLabel" area-hidden="true">
+<div class="modal fade" id="addcoach" tableindex="-1" aria-labelledby="addnewModalLabel" area-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

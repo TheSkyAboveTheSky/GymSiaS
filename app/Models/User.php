@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
     public function salle()
     {
-        return $this->belongsToMany(Salle::class);
+        return $this->belongsTo(Salle::class);
     }
     public function getIsAdminAttribute()
     {

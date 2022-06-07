@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Abonnement;
+use App\Models\Seance;
+use App\Models\Salle;
 use Carbon\Carbon;
 
 class PagesController extends Controller
@@ -22,10 +25,6 @@ class PagesController extends Controller
         return view('coachs')->with([
             'coachs'=>$coachs
         ]);
-    }
-    // Abonnement
-    public function offres(){
-        return view('admin.abon');
     }
     // list cients
     public function clients(){
@@ -55,6 +54,7 @@ class PagesController extends Controller
         $client = new User;
         $client->name =$request->input("name");
         $client->email=$request->input("email");
+        $client->salle_id=$request->input('salle');
         $client->role_id = 0;
         $client->password = '12345678';
         $client->save();
@@ -76,6 +76,24 @@ class PagesController extends Controller
         $coachs = $users->where("role_id",1)->count();
         $active = $clients->where('');
         return view('livewire.coach')->with([
+        ]);
+    }
+    public function getSalle(){
+        $salles=Salle::all();
+        return view('admin.salles')->with([
+            'salles'=>$salles,
+        ]);
+    }
+    public function getSeance(){
+        $seances=Seance::all();
+        return view('admin.seances')->with([
+            'seances'=>$seances,
+        ]);
+    }
+    public function getAbonnement(){
+        $abonnements=Abonnement::all();
+        return view('admin.abon')->with([
+            'abonnements'=>$abonnements,
         ]);
     }
 

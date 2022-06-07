@@ -14,10 +14,8 @@ class SalleFactory extends Factory
     public function definition()
     {
         return [
-            'salle_name'=>'Mwanj',
-/*             'admin_id'=>1, */
+            'name'=>'Mwanj',
             'adresse'=>'casablanca',
-            'user_id'=>1,
         ];
     }
 }

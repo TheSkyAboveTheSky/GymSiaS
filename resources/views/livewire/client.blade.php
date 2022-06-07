@@ -6,7 +6,7 @@
    <div class="col-md-12 col-md-offset-1">
       <h2>
          Client Table
-         <button type="button" class="btn btn-primary pull-right" style="background-color:green;float:right" data-bs-toggle="modal" data-bs-target="#addnew"><i class="fa fa-plus"></i>Client</button>
+         <button type="button" class="btn btn-primary pull-right" style="background-color:green;float:right" data-bs-toggle="modal" data-bs-target="#addclient"><i class="fa fa-plus"></i>Client</button>
       </h2>
    </div>
 </div>
@@ -21,6 +21,7 @@
             <th>Debut Date</th>
             <th>Expire Date</th>
             <th>Months restant</th>
+            <th>Salle</th>
             <th>Expired/Active</th>
             <th>Action</th>
          </thead>
@@ -38,7 +39,10 @@
                         {{$today->diffInMonths($client->abonnement_expired_at)}} Months
                      </td>
                      <td>
-                        @if ($client->abonnement_expired_at > $today)
+                        {{$client->salle->name}}
+                     </td>
+                     <td>
+                        @if ($client->abonnement_expired_at <= $today)
                               <h3 style="color:red">Expired</h3>
                         @else
                               <h3 style="color:green">Active</h3>

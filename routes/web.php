@@ -29,7 +29,6 @@ Route::get('/index',function(){
 Route::get('/coachs','PagesController@coachs')->name('coachs');
 Route::get('/planning','PagesController@planning')->name('planning');
 Route::get('/clients','PagesController@clients')->name('clients');
-Route::get('/offres','PagesController@offres')->name('offres');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -41,6 +40,9 @@ Route::middleware([
 });
 Route::get('/admin/clients','PagesController@getClient')->name('admin-clients');
 Route::get('/admin/coachs','PagesController@getCoach')->name('admin-coachs');
+Route::get('/admin/salles','PagesController@getSalle')->name('admin-salles');
+Route::get('/admin/seances','PagesController@getSeance')->name('admin-seances');
+Route::get('/admin/abonnements','PagesController@getAbonnement')->name('admin-abonnements');
 Route::get('/client/dashboard',function(){
     return view('client/dashboard');
 })->name('client-dashboard');

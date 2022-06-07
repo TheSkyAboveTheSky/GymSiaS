@@ -42,17 +42,14 @@
                     <x-jet-nav-link href="{{ route('admin-clients') }}" :active="request()->routeIs('admin-clients')">
                         {{ __('Clients') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
-                        {{ __('Clients List') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin-clients') }}" :active="request()->routeIs('admin-clients')">
-                        {{ __('Deamndes Seances') }}
+                    <x-jet-nav-link href="{{ route('admin-seances') }}" :active="request()->routeIs('admin-seances')">
+                        {{ __('Seances') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin-coachs') }}" :active="request()->routeIs('admin-coachs')">
                         {{ __('Coachs') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('coachs') }}" :active="request()->routeIs('coachs')">
-                        {{ __('Coachs List') }}
+                    <x-jet-nav-link href="{{ route('admin-salles') }}" :active="request()->routeIs('admin-salles')">
+                        {{ __('Salles') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('admin-clients') }}" :active="request()->routeIs('admin-clients')">
                         {{ __('Demandes Creneau') }}
@@ -60,8 +57,8 @@
                     <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
                         {{ __('Planning') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('offres') }}" :active="request()->routeIs('offres')">
-                        {{ __('Offres') }}
+                    <x-jet-nav-link href="{{ route('admin-abonnements') }}" :active="request()->routeIs('admin-abonnements')">
+                        {{ __('Abonnements') }}
                     </x-jet-nav-link>
 
                 

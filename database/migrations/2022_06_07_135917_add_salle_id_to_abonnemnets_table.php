@@ -14,7 +14,7 @@ class AddSalleIdToAbonnemnetsTable extends Migration
     public function up()
     {
         Schema::table('abonnements', function (Blueprint $table) {
-            $table->foreignId('salle_id')->constrained('salles');
+            $table->foreignId('salle_id')->constrained('salles')->default(1);
         });
     }
 

@@ -20,4 +20,7 @@ class Salle extends Model
     public function classSalles(){
         return $this->hasMany(Salle::class,'salle_id','salle_id');
     }
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

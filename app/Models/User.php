@@ -23,6 +23,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+    public $table = 'users';
 
     protected $fillable = [
         'user_id',
@@ -75,4 +76,19 @@ class User extends Authenticatable
         'abonnement_expired_at',
         'abonnement_expired_at,'
     ];
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+    public function salles()
+    {
+        return $this->belongsToMany(Salle::class);
+    }
+    public function getIsAdminAttribute(){
+        return $this->roles->where('id',2)->exists();
+    }
+    public function salle()
+    {
+        return $this->hasOne(Salle::class);
+    }
 }

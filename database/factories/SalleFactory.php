@@ -14,10 +14,10 @@ class SalleFactory extends Factory
     public function definition()
     {
         return [
-            'salle_id'=>1,
             'salle_name'=>'Mwanj',
-            'admin_id'=>'AD1',
+            'admin_id'=>1,
             'adresse'=>'casablanca',
+            'user_id'=>1,
         ];
     }
 }

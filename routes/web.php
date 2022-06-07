@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Models\Salle;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,14 @@ Route::get('/','HomeController@checkUserType');
 Route::get('/bar', function () {
     return view('layouts.bar');
 });
-Route::get('/index','PagesController@index');
+Route::get('/index',function(){
+    $salles = Salle::all();
+    $users = User::all();
+    return view('index')->with([
+        'salles'=>$salles,
+        'users' =>$users,
+    ]);
+});
 Route::get('/coachs','PagesController@coachs')->name('coachs');
 Route::get('/planning','PagesController@planning')->name('planning');
 Route::get('/clients','PagesController@clients')->name('clients');

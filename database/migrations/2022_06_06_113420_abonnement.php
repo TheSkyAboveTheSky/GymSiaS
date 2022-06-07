@@ -15,13 +15,13 @@ class Abonnement extends Migration
     {
         //
         Schema::create('abonnements', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('duree');
-            $table->string('salle_id');
             $table->string('prix');
+            $table->foreignId('salle_id')->constrained('salles');
 
-            $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
-
+/*             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
+ */
         });
     }
 

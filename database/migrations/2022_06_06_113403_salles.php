@@ -15,13 +15,13 @@ class Salles extends Migration
     {
         //
         Schema::create('salles', function (Blueprint $table) {
-                $table->increments('id');
+                $table->id();
                 $table->string('salle_name');
-                $table->bigInteger('admin_id');
                 $table->string('adresse');
                 $table->timestamps();
-
-                $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreignId('admin_id')->constrained('users');
+                $table->foreignId('user_id')->constrained('users');
+                
 
         });
     }

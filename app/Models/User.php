@@ -30,6 +30,11 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'salle_id',
+        'seance_id',
+        'abonnement_expired_at',
+        'date_debut_abonnement',
+        'duree_abonement_in_months',
     ];
 
     /**

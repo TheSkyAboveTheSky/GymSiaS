@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             ]);
             $event->menu->add([
                 'text' => 'Dashboard',
-                'url'  => '#',
+                'url'  => 'admin/dashboard',
             ]);
             $event->menu->add('Users Management');
             $event->menu->add([
@@ -104,7 +104,7 @@ class AppServiceProvider extends ServiceProvider
                 'text'        => 'Seances',
                 'url'         => 'admin/seances',
                 'icon'        => 'users',
-                'label'       => Salle::count(),
+                'label'       => Seance::count(),
                 'label_color' => 'success',
                 'submenu' => [
                     [
@@ -140,10 +140,6 @@ class AppServiceProvider extends ServiceProvider
                 ],
             ],
             );
-            $event->menu->add([
-                'text' => 'Planning',
-                'url'  => '#',
-            ]);
             $event->menu->add([
                 'text' => 'Change Creneau',
                 'url'  => '#',

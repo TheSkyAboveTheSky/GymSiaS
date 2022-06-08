@@ -17,8 +17,7 @@ class Salle extends Model
     ];
     protected $fillable = [
         'salle_id',
-        'salle_name',
-        'salle_adresse',
+        'name',
         'adresse',
     ];
     public function salleSeances()

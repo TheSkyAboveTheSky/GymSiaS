@@ -26,6 +26,7 @@ class Seance extends Model
         'deleted_at',
         'activite',
         'user_id',
+        'salle_id',
     ];
     const WEEK_DAYS = [
         '1' => 'Monday',

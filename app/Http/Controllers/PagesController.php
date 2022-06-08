@@ -11,21 +11,23 @@ use Carbon\Carbon;
 
 class PagesController extends Controller
 {
+        // list coachs
+        public function coachs(){
+            $coachs= User::all();
+            return view('coachs')->with([
+                'coachs'=>$coachs
+            ]);
+        }
+            // Planning
+    public function planning(){
+        return view('planning');
+    }
 /*     //Pour Test NavBar
     public function index(){
         return view('index');
     }
-    // Planning
-    public function planning(){
-        return view('planning');
-    }
-    // list coachs
-    public function coachs(){
-        $coachs= User::all();
-        return view('coachs')->with([
-            'coachs'=>$coachs
-        ]);
-    }
+
+
     // list cients
     public function clients(){
         $clients=User::all();

@@ -225,7 +225,7 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
+/*         // Navbar items:
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
@@ -241,64 +241,76 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+
+        
+        ['header' => 'Users Managements'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => 'Clients',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'List',
+                    'url'  => 'admin/clients',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Create',
+                    'url'  => 'admin/clients/create',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Coachs',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'List',
+                    'url'  => 'admin/coachs',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Create',
+                    'url'  => 'admin/coachs/create',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Salles',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'List',
+                    'url'  => 'admin/salles',
+                ],
+                [
+                    'text' => 'Create',
+                    'url'  => 'admin/salles/create',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Seances',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'List',
+                    'url'  => 'admin/seances',
+                ],
+                [
+                    'text' => 'Create',
+                    'url'  => 'admin/seances/create',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Abonnements',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'List',
+                    'url'  => 'admin/abonnements',
+                ],
+                [
+                    'text' => 'Create',
+                    'url'  => 'admin/abonnements/create',
                 ],
             ],
         ],
@@ -317,7 +329,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*

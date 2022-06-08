@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Seance;
+use App\Models\Abonnement;
 
-class SeanceController extends Controller
+class AbonnementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class SeanceController extends Controller
     public function index()
     {
         //
-        $seances = Seance::all();
-        return view('seances.index')->with([
-            'seances' =>$seances
+        $abonnements = Abonnement::all();
+        return view('abonnements.index')->with([
+            'abonnements' =>$abonnements
         ]);
     }
 
@@ -29,7 +29,7 @@ class SeanceController extends Controller
     public function create()
     {
         //
-        return view('seances.create');
+        return view('abonnements.create');
     }
 
     /**
@@ -41,16 +41,13 @@ class SeanceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'weekday' => 'required',
-            'activite' => 'required',
-            'start_time' => 'required|date',
-            'end_time' => 'required|date',
-            'coach_id' => 'required|numeric',
+            'duree' => 'required',
+            'prix' => 'required|numeric',
             'salle_id' => 'required|numeric',
         ]);
         $input = $request->all();
-        Seance::create($input);
-        return redirect()->route('seances.index');
+        Abonnement::create($input);
+        return redirect()->route('abonnements.index');
     }
 
     /**
@@ -61,9 +58,8 @@ class SeanceController extends Controller
      */
     public function show($id)
     {
-        $seance = Seance::findOrFail($id);
-        return view('seances.show', compact('seance','seance'));
-
+        $abonnement = Abonnement::findOrFail($id);
+        return view('abonnements.show', compact('abonnement','abonnement'));
     }
 
     /**
@@ -75,9 +71,9 @@ class SeanceController extends Controller
     public function edit($id)
     {
         //
-        $seance = Seance::where('id',$id)->first();
-        return view("seances.edit")->with([
-            'seance'=>$seance
+        $abonnement = Abonnement::where('id',$id)->first();
+        return view("abonnements.edit")->with([
+            'abonnement'=>$abonnement
         ]);
     }
 
@@ -91,18 +87,15 @@ class SeanceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $seance = Seance::findOrFail($id);
+        $abonnement = Abonnement::findOrFail($id);
         $this->validate($request, [
-            'weekday' => 'required',
-            'activite' => 'required',
-            'start_time' => 'required',
-            'end_time' => 'required',
-            'coach_id' => 'required|numeric',
+            'duree' => 'required',
+            'prix' => 'required|numeric',
             'salle_id' => 'required|numeric',
         ]);
         $input = $request->all();
-        $seance->fill($input)->save();
-        return redirect()->route("seances.index");
+        $abonnement->fill($input)->save();
+        return redirect()->route("abonnements.index");
 
     }
 
@@ -114,9 +107,9 @@ class SeanceController extends Controller
      */
     public function destroy($id)
     {
-        $seance = Seance::findOrFail($id);
-        $seance->delete();
+        $abonnement = Abonnement::findOrFail($id);
+        $abonnement->delete();
 
-        return redirect()->route("seances.index");
+        return redirect()->route("abonnements.index");
     }
 }

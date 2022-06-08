@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Seance;
+use App\Models\Salle;
 
-class SeanceController extends Controller
+class SalleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class SeanceController extends Controller
     public function index()
     {
         //
-        $seances = Seance::all();
-        return view('seances.index')->with([
-            'seances' =>$seances
+        $salles = Salle::all();
+        return view('salles.index')->with([
+            'salles' =>$salles
         ]);
     }
 
@@ -29,7 +29,7 @@ class SeanceController extends Controller
     public function create()
     {
         //
-        return view('seances.create');
+        return view('salles.create');
     }
 
     /**
@@ -41,16 +41,12 @@ class SeanceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'weekday' => 'required',
-            'activite' => 'required',
-            'start_time' => 'required|date',
-            'end_time' => 'required|date',
-            'coach_id' => 'required|numeric',
-            'salle_id' => 'required|numeric',
+            'name' => 'required',
+            'adresse' => 'required',
         ]);
         $input = $request->all();
-        Seance::create($input);
-        return redirect()->route('seances.index');
+        Salle::create($input);
+        return redirect()->route('salles.index');
     }
 
     /**
@@ -61,8 +57,8 @@ class SeanceController extends Controller
      */
     public function show($id)
     {
-        $seance = Seance::findOrFail($id);
-        return view('seances.show', compact('seance','seance'));
+        $salle = Salle::findOrFail($id);
+        return view('salles.show', compact('salle','salle'));
 
     }
 
@@ -75,9 +71,9 @@ class SeanceController extends Controller
     public function edit($id)
     {
         //
-        $seance = Seance::where('id',$id)->first();
-        return view("seances.edit")->with([
-            'seance'=>$seance
+        $salle = Salle::where('id',$id)->first();
+        return view("salles.edit")->with([
+            'salle'=>$salle
         ]);
     }
 
@@ -91,18 +87,14 @@ class SeanceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $seance = Seance::findOrFail($id);
+        $salle = Salle::findOrFail($id);
         $this->validate($request, [
-            'weekday' => 'required',
-            'activite' => 'required',
-            'start_time' => 'required',
-            'end_time' => 'required',
-            'coach_id' => 'required|numeric',
-            'salle_id' => 'required|numeric',
+            'name' => 'required',
+            'adresse' => 'required',
         ]);
         $input = $request->all();
-        $seance->fill($input)->save();
-        return redirect()->route("seances.index");
+        $salle->fill($input)->save();
+        return redirect()->route("salles.index");
 
     }
 
@@ -114,9 +106,9 @@ class SeanceController extends Controller
      */
     public function destroy($id)
     {
-        $seance = Seance::findOrFail($id);
-        $seance->delete();
+        $salle = Salle::findOrFail($id);
+        $salle->delete();
 
-        return redirect()->route("seances.index");
+        return redirect()->route("salles.index");
     }
 }

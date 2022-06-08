@@ -30,9 +30,4 @@ class Salle extends Model
     {
         return $this->hasMany(User::class, 'salle_id', 'id');
     }
-
-
-/*     public function user() {
-        return $this->belongsTo(User::class);
-    } */
 }

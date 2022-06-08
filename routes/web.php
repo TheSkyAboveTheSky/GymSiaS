@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Salle;
@@ -38,16 +39,29 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/admin/clients','PagesController@getClient')->name('admin-clients');
-Route::get('/admin/coachs','PagesController@getCoach')->name('admin-coachs');
-Route::get('/admin/salles','PagesController@getSalle')->name('admin-salles');
-Route::get('/admin/seances','PagesController@getSeance')->name('admin-seances');
-Route::get('/admin/abonnements','PagesController@getAbonnement')->name('admin-abonnements');
+/* Route::prefix('admin')->middleware('auth')->group(function(){
+    Route::get('/admin/coachs','PagesController@getCoach')->name('admin-coachs');
+    Route::get('/admin/salles','PagesController@getSalle')->name('admin-salles');
+    Route::get('/admin/seances','PagesController@getSeance')->name('admin-seances');
+    Route::get('/admin/abonnements','PagesController@getAbonnement')->name('admin-abonnements');
+    Route::resource('clients','ClientController');
+}); */
 Route::get('/client/dashboard',function(){
     return view('client/dashboard');
 })->name('client-dashboard');
 Route::get('/coach/dashboard',function(){
     return view('coach/dashboard');
 })->name('coach-dashboard');
-Route::post('/save/client','PagesController@save_client');
+/* Route::post('/save/client','PagesController@save_client');
 Route::post('/save/coach','PagesController@save_coach');
+Route::post('/save/salle','PagesController@save_salle');
+Route::post('/save/seance','PagesController@save_seance');
+Route::post('/save/abonnement','PagesController@save_abonnement');
+ */
+
+ Route::prefix('admin')->middleware('auth')->group(function(){
+     Route::get('/home',function(){
+         return view('clients');
+     })->name('admin-home');
+     Route::resource('clients','ClientController');
+ });

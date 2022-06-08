@@ -18,6 +18,7 @@ class Abonnement extends Migration
             $table->id();
             $table->string('duree');
             $table->string('prix');
+            $table->timestamps();
         });
     }
 

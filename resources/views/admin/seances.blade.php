@@ -5,7 +5,7 @@
    <div class="col-md-12 col-md-offset-1">
       <h2>
          Salles Table
-         <button type="button" class="btn btn-primary pull-right" style="background-color:green;float:right" data-bs-toggle="modal" data-bs-target="#addsalle"><i class="fa fa-plus"></i>Seance</button>
+         <button type="button" class="btn btn-primary pull-right" style="background-color:green;float:right" data-bs-toggle="modal" data-bs-target="#addseance"><i class="fa fa-plus"></i>Seance</button>
       </h2>
    </div>
 </div>

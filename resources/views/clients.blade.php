@@ -1,4 +1,4 @@
-@extends("layouts.master")
+{{-- @extends("layouts.master")
 <!DOCTYPE html>
     <!-- Coding by CodingLab | www.codinglabweb.com -->
     <html lang="en">
@@ -55,4 +55,4 @@
 
     <!-- JavaScript -->
     <script type="text/javascript" src="{{ URL::asset('js/cards.js') }}"></script>
-</html>
+</html> --}}

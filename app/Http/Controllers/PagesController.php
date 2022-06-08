@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 class PagesController extends Controller
 {
-    //Pour Test NavBar
+/*     //Pour Test NavBar
     public function index(){
         return view('index');
     }
@@ -37,7 +37,7 @@ class PagesController extends Controller
     public function getClient(){
         $clients=User::all();
         $today = Carbon::today();
-        return view('livewire.client')->with([
+        return view('admin.client')->with([
             'clients'=>$clients,
             'today'=>$today
         ]);
@@ -45,7 +45,7 @@ class PagesController extends Controller
     // coach [pour coach]
     public function getCoach(){
         $coachs=User::all();
-        return view('livewire.coach')->with([
+        return view('admin.coach')->with([
             'coachs'=>$coachs
         ]);
     }
@@ -60,11 +60,27 @@ class PagesController extends Controller
         $client->save();
         return redirect('admin/clients');
     }
+    public function save_salle(Request $request){
+        $salle = new Salle;
+        $salle->name =$request->input("name");
+        $salle->adresse=$request->input("adresse");
+        $salle->save();
+        return redirect('admin/salles');
+    }
+    public function save_Abonnement(Request $request){
+        $abonnement = new Abonnement;
+        $abonnement->duree =$request->input("duree");
+        $abonnement->prix=$request->input("prix");
+        $abonnement->salle_id=$request->input("salle");
+        $abonnement->save();
+        return redirect('admin/abonnements');
+    }
     // save coach
     public function save_coach(Request $request){
         $coach = new User;
         $coach->name =$request->input("name");
         $coach->email=$request->input("email");
+        $coach->salle_id=$request->input('salle');
         $coach->role_id = 1;
         $coach->password = '12345678';
         $coach->save();
@@ -75,7 +91,7 @@ class PagesController extends Controller
         $clients = $users->where('role_id',0);
         $coachs = $users->where("role_id",1)->count();
         $active = $clients->where('');
-        return view('livewire.coach')->with([
+        return view('admin.coach')->with([
         ]);
     }
     public function getSalle(){
@@ -96,5 +112,20 @@ class PagesController extends Controller
             'abonnements'=>$abonnements,
         ]);
     }
-
+    public function edit_client(Request $request){
+        $client = new User;
+        $client->name =$request->input("name");
+        $client->email=$request->input("email");
+        $client->salle_id=$request->input('salle');
+        $client->role_id = 0;
+        $client->password = '12345678';
+        $client->save();
+        return redirect('admin/clients');
+    }
+/*     public function edit(){
+        $client = User::where('id',$id)->first();
+        return view('admin-clientedit')->with([
+            'client'=>$client
+        ]);
+    } */
 }

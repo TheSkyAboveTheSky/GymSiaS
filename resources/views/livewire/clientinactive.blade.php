@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+{{-- @extends('admin.dashboard')
 @section('content')
 
 <h1 class="page-header text-center">Client List</h1>
@@ -39,4 +39,4 @@
       </table>
    </div>
 </div>
-@endsection
+@endsection --}}

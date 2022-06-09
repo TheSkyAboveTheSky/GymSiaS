@@ -41,10 +41,10 @@ class SeanceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'weekday' => 'required',
+            'weekday' => 'required|numeric',
             'activite' => 'required',
-            'start_time' => 'required|date',
-            'end_time' => 'required|date',
+            'start_time' => 'required',
+            'end_time' => 'required',
             'coach_id' => 'required|numeric',
             'salle_id' => 'required|numeric',
         ]);
@@ -93,7 +93,7 @@ class SeanceController extends Controller
         //
         $seance = Seance::findOrFail($id);
         $this->validate($request, [
-            'weekday' => 'required',
+            'weekday' => 'required|numeric',
             'activite' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',

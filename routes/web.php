@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DemandeAccesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Salle;
 use App\Models\User;
 use App\Models\Seance;
 use App\Models\Abonnement;
+use App\Models\DemandeAcces;
 use Carbon\carbon;
 /*
 |--------------------------------------------------------------------------
@@ -71,9 +73,18 @@ Route::get('/coach/dashboard',function(){
              'year' =>$year
          ]);
      })->name('admin-dashboard');
+     Route::get('/demandes_acces',function(){
+         $demandes = DemandeAcces::where('Etatdemande',1)->get();
+         return view('admin/demandes_acces')->with([
+             'demandes' => $demandes
+         ]);
+     })->name('admin-demandes_acces');
      Route::resource('clients','ClientController');
      Route::resource('coachs','CoachController');
      Route::resource('salles','SalleController');
      Route::resource('seances','SeanceController');
      Route::resource('abonnements','AbonnementController');
+     Route::get('/accepter/{id}','DemandeAccesController@accepter');
+     Route::get('/refuser/{id}','DemandeAccesController@refuser');
  });
+

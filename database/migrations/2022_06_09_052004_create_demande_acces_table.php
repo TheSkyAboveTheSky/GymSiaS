@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Carbon\carbon;
 
-class CreateSeancesTable extends Migration
+class CreateDemandeAccesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +13,12 @@ class CreateSeancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('seances', function (Blueprint $table) {
+        Schema::create('demande_acces', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('weekday');
-            $table->text('activite');
-            $table->time('start_time')->default(Carbon::now());
-            $table->time('end_time')->nullable();
+            $table->foreignId('user_id')->constrained("users");
+            $table->foreignId('seance_id')->constrained("seances");
+            $table->unsignedInteger('Etatdemande')->default(1);;
             $table->timestamps();
-
         });
     }
 
@@ -32,6 +29,6 @@ class CreateSeancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seances');
+        Schema::dropIfExists('demande_acces');
     }
 }

@@ -20,7 +20,7 @@
     <!-- build our form inputs -->
     <div class="form-group">
       {{Form::label('weekday', 'Seance jour')}}
-      {{Form::text('weekday', '', ['class' => 'form-control'])}}
+      {{Form::number('weekday', '', ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
       {{Form::label('activite', 'Seance Activite')}}
@@ -28,11 +28,11 @@
     </div>
     <div class="form-group">
       {{Form::label('start_time', 'Seance start_time')}}
-      {{Form::date('start_time', '', ['class' => 'form-control'])}}
+      {{Form::time('start_time', '', ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
       {{Form::label('end_time', 'Seance end_time')}}
-      {{Form::date('end_time', '', ['class' => 'form-control'])}}
+      {{Form::time('end_time', '', ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
       {{Form::label('coach_id', 'Seance Coach')}}

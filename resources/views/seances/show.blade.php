@@ -12,7 +12,7 @@
   <dd>{{$seance->weekday}}</dd>
 
   <dt>Seance Activite</dt>
-  <dd>{{$seance->activite}} Dh</dd>
+  <dd>{{$seance->activite}}</dd>
 
   <dt>Seance Start_time</dt>
   <dd>{{$seance->start_time}}</dd>

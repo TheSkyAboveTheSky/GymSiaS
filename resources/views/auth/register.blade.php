@@ -1,4 +1,3 @@
-@extends('layouts.master')
 <x-guest-layout>
     <div style="margin-top:100px">
     </div>

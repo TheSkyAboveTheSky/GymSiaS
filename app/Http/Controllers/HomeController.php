@@ -23,7 +23,7 @@ class HomeController extends Controller
             return redirect()->route('coach-dashboard');
         }
         if (Auth::user()->role_id === 2){
-            return redirect()->route('admin-home');
+            return redirect()->route('admin-dashboard');
         }
 
     }

@@ -12,7 +12,6 @@
           <th>Seance Jour</th>
           <th>Seance Start</th>
           <th>Seance End</th>
-          <th>Seance End</th>
           <th>Coach</th>
           <th>Salle</th>
         </thead>
@@ -21,7 +20,6 @@
         <tr>
           <td>{{$seance->id}}</td>
           <td>{{$seance->weekday}}</td>
-          <td>{{$seance->email}}</td>
           <td>{{$seance->start_time}}</td>
           <td>{{$seance->end_time}}</td>
           <td>{{$seance->coach->name}}</td>

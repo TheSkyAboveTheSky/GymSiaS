@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Dispatcher $events)
     {
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+            
             if (Auth::user()->role_id === 2)
             $event->menu->add([
                 'text' => Auth::user()->name,
@@ -145,8 +146,8 @@ class AppServiceProvider extends ServiceProvider
                 'url'  => '#',
             ]);
             $event->menu->add([
-                'text' => 'change seance',
-                'url'  => '#',
+                'text' => 'Deamndes d\'acces au seances',
+                'url'  => 'admin/demandes_acces',
             ]);
             $event->menu->add([
                 'text' => 'Planning',

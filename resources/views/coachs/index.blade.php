@@ -4,7 +4,7 @@
 <a href="{{route('coachs.create')}}" class=" btn btn-primary pull-right" style="background-color:green;float:right"><i class="fa fa-plus"></i>Coach</a>
 <hr/>
   <div class="row">
-    <div class="col-md-12 col-md-offset-1">
+    <div class="col-md-16 col-md-offset-1">
       <table class="table table-bordered table-responsive table-striped">
         <thead>
         <tr>

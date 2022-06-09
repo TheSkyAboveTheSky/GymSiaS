@@ -13,24 +13,27 @@
     </ul>
 </div>
 @endif
-    <!-- Open the form with the store function route. -->
-    {{ Form::open(['action' => ['AbonnementController@update', $abonnement->id], 'method' => 'put']) }}
-    <!-- Include the CRSF token -->
-    {{Form::token()}}
-    <!-- build our form inputs -->
-    <div class="form-group">
-      {{Form::label('duree', 'Abonnement Duree')}}
-      {{Form::text('duree', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('prix', 'Abonnement Prix')}}
-      {{Form::number('prix', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('salle_id', 'Abonnement Salle')}}
-      {{Form::number('salle_id', '', ['class' => 'form-control'])}}
-    </div>
-    <br>
-    {{Form::submit('Update!', ['class' => 'btn btn-primary'])}}
-    {{ Form::close() }}
+
+
+    <form method="POST" action="http://127.0.0.1:8000/admin/abonnements/2" accept-charset="UTF-8"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+      <div class="form-group">
+        <label for="duree">Abonnement Duree</label>
+        <input class="form-control" name="duree" type="text" value="{{ old('duree', $abonnement->duree)}}" id="duree">
+      </div>
+      <div class="form-group">
+        <label for="prix">Abonnement Prix</label>
+        <input class="form-control" name="prix" type="number" value="{{ old('prix', $abonnement->prix)}}" step ="1000" id="prix">
+      </div>
+      <div class="form-group">
+        <label for="salle_id">Abonnement Salle</label>
+        <select class="form-control select2" name="salle_id" type="number"  id="salle_id">
+          @foreach ($salles as $id => $salle)
+              <option value="{{$id}}" {{$abonnement->salle ? $abonnement->salle->id : old('salle_id') == $id ? 'selected' : ''}}>{{$salle}}</option>
+          @endforeach
+        </select>
+      </div>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Update!">
+      </form>
 @endsection

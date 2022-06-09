@@ -13,20 +13,19 @@
     </ul>
 </div>
 @endif
-    <!-- Open the form with the store function route. -->
-    {{ Form::open(['action' => ['SalleController@update', $salle->id], 'method' => 'put']) }}
-    <!-- Include the CRSF token -->
-    {{Form::token()}}
-    <!-- build our form inputs -->
-    <div class="form-group">
-      {{Form::label('name', 'Salle Name')}}
-      {{Form::text('name', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('adresse', 'Salle Adresse')}}
-      {{Form::text('adresse', '', ['class' => 'form-control'])}}
-    </div>
-    <br>
-    {{Form::submit('Update!', ['class' => 'btn btn-primary'])}}
-    {{ Form::close() }}
+    <form method="POST" action="http://127.0.0.1:8000/admin/salles/1" accept-charset="UTF-8"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+      <div class="form-group">
+        <label for="name">Salle Name</label>
+        <input class="form-control select2" name="name" type="text" value="{{old('name',$salle->name)}}" id="name">
+      </div>
+      <div class="form-group">
+        <label for="adresse">Salle Adresse</label>
+        <input class="form-control" name="adresse" type="text" value="{{old('adresse',$salle->adresse)}}" id="adresse">
+      </div>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Update!">
+      </form>
+          </div>
+      </div>
 @endsection

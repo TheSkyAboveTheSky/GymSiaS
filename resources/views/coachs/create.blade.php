@@ -13,30 +13,38 @@
     </ul>
 </div>
 @endif
-    <!-- Open the form with the store function route. -->
-    {{ Form::open(['action' => 'CoachController@store']) }}
+    <form method="POST" action="http://127.0.0.1:8000/admin/coachs" accept-charset="UTF-8"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
 
-    <!-- Include the CRSF token -->
-    {{Form::token()}}
+      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+  
+      
 
-    
-    <!-- build our form inputs -->
-    <div class="form-group">
-      {{Form::label('name', 'Coach Name')}}
-      {{Form::text('name', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('salle_id', 'Coach Salle')}}
-      {{Form::number('salle_id', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('email', 'Coach Email')}}
-      {{Form::email('email', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group" class="hidden">
-      {{Form::label('role_id', 'Coach Role')}}
-      {{Form::number('role_id', '', ['class' => 'form-control'])}}
-    </div>
-    {{Form::submit('Create!', ['class' => 'btn btn-primary'])}}
-    {{ Form::close() }}
+      <div class="form-group">
+        <label for="name">Coach Name</label>
+        <input class="form-control" name="name" type="text" value="" id="name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Coach Email</label>
+        <input class="form-control" name="email" type="email" value="" id="email">
+      </div>
+
+      <div class="form-group">
+        <label for="salle_id">Coach Salle</label>
+        <select class="form-control select2" name="salle_id" type="number" value="" id="salle_id">
+          @foreach ($salles as $id => $salle)
+                <option value="{{$id}}" {{old('salle_id') == $id ? 'selected' : ''}}>{{$salle}}</option>
+          @endforeach 
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="role_id">Coach Role</label>
+        <input class="form-control" name="role_id"  value="1" id="role_id" type="hidden">
+      </div>
+
+      <input class="btn btn-primary" type="submit" value="Create!">
+      </form>
+          </div>
+      </div>
 @endsection

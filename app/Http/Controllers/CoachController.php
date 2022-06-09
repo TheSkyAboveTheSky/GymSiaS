@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Salle;
 
 class CoachController extends Controller
 {
@@ -27,7 +28,10 @@ class CoachController extends Controller
      */
     public function create()
     {
-        return view('coachs.create');
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
+        return view('coachs.create')->with([
+            'salles' => $salles
+        ]);
     }
 
     /**
@@ -70,8 +74,10 @@ class CoachController extends Controller
     public function edit($id)
     {
         $coach = User::where('id',$id)->first();
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
         return view("coachs.edit")->with([
-            'coach'=>$coach
+            'coach'=>$coach,
+            'salles' =>$salles,
         ]);
     }
 

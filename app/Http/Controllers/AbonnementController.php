@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Abonnement;
+use App\Models\Salle;
 
 class AbonnementController extends Controller
 {
@@ -17,7 +18,7 @@ class AbonnementController extends Controller
         //
         $abonnements = Abonnement::all();
         return view('abonnements.index')->with([
-            'abonnements' =>$abonnements
+            'abonnements' =>$abonnements,
         ]);
     }
 
@@ -28,8 +29,10 @@ class AbonnementController extends Controller
      */
     public function create()
     {
-        //
-        return view('abonnements.create');
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
+        return view('abonnements.create')->with([
+            'salles' => $salles,
+        ]);
     }
 
     /**
@@ -72,8 +75,10 @@ class AbonnementController extends Controller
     {
         //
         $abonnement = Abonnement::where('id',$id)->first();
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
         return view("abonnements.edit")->with([
-            'abonnement'=>$abonnement
+            'abonnement'=>$abonnement,
+            "salles" =>$salles
         ]);
     }
 

@@ -35,10 +35,13 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add([
                 'text' => Auth::user()->name,
                 'url'  => 'user/profile',
+                'icon' => 'fa fa-user',
             ]);
             $event->menu->add([
                 'text' => 'Dashboard',
                 'url'  => 'admin/dashboard',
+                'icon' => 'fa fa-chart-bar',
+                'img' => 'red',
             ]);
             $event->menu->add('Users Management');
             $event->menu->add([
@@ -51,11 +54,13 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'text' => 'List',
                         'url'  => 'admin/clients',
+                        'icon' => 'fa fa-list',
                         'icon_color' => 'blue',
                     ],
                     [
                         'text' => 'Create',
                         'url'  => 'admin/clients/create',
+                        'icon' => 'fa fa-plus',
                         'icon_color' => 'green',
                     ],
                 ],
@@ -71,11 +76,13 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'text' => 'List',
                         'url'  => 'admin/coachs',
+                        'icon' => 'fa fa-list',
                         'icon_color' => 'blue',
                     ],
                     [
                         'text' => 'Create',
                         'url'  => 'admin/coachs/create',
+                        'icon' => 'fa fa-plus',
                         'icon_color' => 'green',
                     ],
                 ],
@@ -91,11 +98,13 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'text' => 'List',
                         'url'  => 'admin/salles',
+                        'icon' => 'fa fa-list',
                         'icon_color' => 'blue',
                     ],
                     [
                         'text' => 'Create',
                         'url'  => 'admin/salles/create',
+                        'icon' => 'fa fa-plus',
                         'icon_color' => 'green',
                     ],
                 ],
@@ -111,11 +120,13 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'text' => 'List',
                         'url'  => 'admin/seances',
+                        'icon' => 'fa fa-list',
                         'icon_color' => 'blue',
                     ],
                     [
                         'text' => 'Create',
                         'url'  => 'admin/seances/create',
+                        'icon' => 'fa fa-plus',
                         'icon_color' => 'green',
                     ],
                 ],
@@ -131,11 +142,13 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'text' => 'List',
                         'url'  => 'admin/abonnements',
+                        'icon' => 'fa fa-list',
                         'icon_color' => 'blue',
                     ],
                     [
                         'text' => 'Create',
                         'url'  => 'admin/abonnements/create',
+                        'icon' => 'fa fa-plus',
                         'icon_color' => 'green',
                     ],
                 ],
@@ -144,14 +157,20 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add([
                 'text' => 'Demandes Changement Creneaux',
                 'url'  => 'admin/demandes_creneau',
+                'icon' =>'fa fa-envelope',
+                'icon_color' => 'orange',
             ]);
             $event->menu->add([
                 'text' => 'Demandes d\'acces au seances',
                 'url'  => 'admin/demandes_acces',
+                'icon' => 'fa fa-envelope',
+                'icon_color' => 'orange',
             ]);
             $event->menu->add([
                 'text' => 'Planning',
                 'url'  => '/planning',
+                'icon' => 'fa fa-calendar',
+                'icon_color' =>'yellow'
             ]);
 
         }

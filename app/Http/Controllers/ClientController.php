@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Salle;
 use Carbon\Carbon;
 
 class ClientController extends Controller
@@ -29,8 +30,10 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
-        return view('clients.create');
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
+        return view('clients.create')->with([
+            'salles' => $salles,
+        ]);
     }
 
     /**
@@ -46,6 +49,7 @@ class ClientController extends Controller
             'salle_id' => 'required|numeric',
             'duree_abonement_in_months' => 'required',
             'email' => 'required|email',
+            'role_id' => 'required|numeric',
         ]);
         $input = $request->all();
         User::create($input);
@@ -76,10 +80,11 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
         $client = User::where('id',$id)->first();
         return view("clients.edit")->with([
-            'client'=>$client
+            'client'=>$client,
+            'salles' =>$salles,
         ]);
     }
 
@@ -99,6 +104,7 @@ class ClientController extends Controller
             'salle_id' => 'required|numeric',
             'duree_abonement_in_months' => 'required',
             'email' => 'required|email',
+            'role_id' => 'required|numeric',
         ]);
         $input = $request->all();
         $client->fill($input)->save();

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Seance;
+use App\Models\User;
+use App\Models\Salle;
 
 class SeanceController extends Controller
 {
@@ -14,10 +16,10 @@ class SeanceController extends Controller
      */
     public function index()
     {
-        //
         $seances = Seance::all();
         return view('seances.index')->with([
-            'seances' =>$seances
+            'seances' =>$seances,
+
         ]);
     }
 
@@ -28,8 +30,12 @@ class SeanceController extends Controller
      */
     public function create()
     {
-        //
-        return view('seances.create');
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
+        $coachs = User::where('role_id',1)->pluck('name','id')->prepend(trans('Please Select'),'');
+        return view('seances.create')->with([
+            'salles' => $salles,
+            'coachs' => $coachs,
+        ]);
     }
 
     /**
@@ -74,10 +80,13 @@ class SeanceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salles = Salle::all()->pluck('name','id')->prepend(trans('Please Select'),'');
+        $coachs = User::where('role_id',1)->pluck('name','id')->prepend(trans('Please Select'),'');
         $seance = Seance::where('id',$id)->first();
         return view("seances.edit")->with([
-            'seance'=>$seance
+            'seance'=>$seance,
+            'salles'=>$salles,
+            'coachs' =>$coachs,
         ]);
     }
 

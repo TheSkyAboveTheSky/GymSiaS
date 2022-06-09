@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content')
-<h2 class="display-6">salles list</h2>
+<h2 class="display-6">Salles list</h2>
 <a href="{{route('salles.create')}}" class=" btn btn-primary pull-right" style="background-color:green;float:right"><i class="fa fa-plus"></i>salle</a>
 <hr/>
   <div class="row">

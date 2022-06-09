@@ -13,22 +13,23 @@
     </ul>
 </div>
 @endif
-    <!-- Open the form with the store function route. -->
-    {{ Form::open(['action' => 'SalleController@store']) }}
 
-    <!-- Include the CRSF token -->
-    {{Form::token()}}
+    <form method="POST" action="http://127.0.0.1:8000/admin/salles" accept-charset="UTF-8"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
 
-    
-    <!-- build our form inputs -->
-    <div class="form-group">
-      {{Form::label('name', 'Salle Name')}}
-      {{Form::text('name', '', ['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-      {{Form::label('adresse', 'Salle Adresse')}}
-      {{Form::text('adresse', '', ['class' => 'form-control'])}}
-    </div>
-    {{Form::submit('Create!', ['class' => 'btn btn-primary'])}}
-    {{ Form::close() }}
+
+      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+  
+      
+      <div class="form-group">
+        <label for="name">Salle Name</label>
+        <input class="form-control" name="name" type="text" value="" id="name">
+      </div>
+      <div class="form-group">
+        <label for="adresse">Salle Adresse</label>
+        <input class="form-control" name="adresse" type="text" value="" id="adresse">
+      </div>
+      <input class="btn btn-primary" type="submit" value="Create!">
+      </form>
+          </div>
+      </div>
 @endsection

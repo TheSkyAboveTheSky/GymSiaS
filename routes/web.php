@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Seance;
 use App\Models\Abonnement;
 use App\Models\DemandeAcces;
+use App\Models\DemandeCreneau;
 use Carbon\carbon;
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,8 @@ Route::get('/coach/dashboard',function(){
         $abonnements = Abonnement::count();
         $month = User::whereBetween('date_debut_abonnement',[Carbon::now()->subMonth(),Carbon::now()])->count();
         $year = User::whereBetween('date_debut_abonnement',[Carbon::now()->subYear(),Carbon::now()])->count();
+        $active = User::wheredate('abonnement_expired_at','>', Carbon::now())->count();
+        $inactive = User::wheredate('abonnement_expired_at','<', Carbon::now())->count();
 
          return view('admin/dashboard')->with([
              'clients' => $clients ,
@@ -70,21 +73,36 @@ Route::get('/coach/dashboard',function(){
              'seances' => $seances,
              'abonnements' =>$abonnements,
              'month' =>$month,
-             'year' =>$year
+             'year' =>$year,
+             'active' =>$active,
+             'inactive' =>$inactive
+
          ]);
      })->name('admin-dashboard');
-     Route::get('/demandes_acces',function(){
-         $demandes = DemandeAcces::where('Etatdemande',1)->get();
-         return view('admin/demandes_acces')->with([
-             'demandes' => $demandes
-         ]);
-     })->name('admin-demandes_acces');
      Route::resource('clients','ClientController');
      Route::resource('coachs','CoachController');
      Route::resource('salles','SalleController');
      Route::resource('seances','SeanceController');
      Route::resource('abonnements','AbonnementController');
-     Route::get('/accepter/{id}','DemandeAccesController@accepter');
-     Route::get('/refuser/{id}','DemandeAccesController@refuser');
+
+
+     Route::get('/demandes_acces',function(){
+        $demandes = DemandeAcces::where('Etatdemande',1)->get();
+        return view('admin/demandes_acces')->with([
+            'demandes' => $demandes
+        ]);
+    })->name('admin-demandes_acces');
+     Route::get('/accepter/seance/{id}','DemandeAccesController@accepter');
+     Route::get('/refuser/seance/{id}','DemandeAccesController@refuser');
+
+     
+     Route::get('/demandes_creneau',function(){
+        $demandes = DemandeCreneau::where('Etatdemande',1)->get();
+        return view('admin/demandes_creneau')->with([
+            'demandes' => $demandes
+        ]);
+    })->name('admin-demandes_creneau');
+     Route::get('/accepter/creneau/{id}','DemandeCreneauController@accepter');
+     Route::get('/refuser/creneau/{id}','DemandeCreneauController@refuser');
  });
 

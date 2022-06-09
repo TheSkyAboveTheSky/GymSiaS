@@ -5,7 +5,7 @@
         <h4 class="font-weight-bold">MounTor: Planning</h4>
         <h4 class="display-4 font-weight-bold">Working Hours and Class Time</h4>
     </div>
-    <div class="tab-class">
+    <div class="tab-class col-md-20">
         <div class="tab-content">
             <div id="class-all" class="container tab-pane p-0 active">
                 <div class="table-responsive">

@@ -18,8 +18,8 @@
           <td>{{$demande->seance->id}}</td>
           <td>
              <div class="d-flex">
-               <a href="{{url('admin/accepter',$demande->id)}}" class="btn btn-succes" style="background-color: green;color:aliceblue;margin-right:4px;"><strong>Accepte</strong></a>
-               <a href="{{url('admin/refuser',$demande->id)}}" class="btn btn-danger" style="background-color: crimson;color:aliceblue"><strong>Refuser</strong></a>
+               <a href="{{url('admin/accepter/seance',$demande->id)}}" class="btn btn-succes" style="background-color: green;color:aliceblue;margin-right:4px;"><strong>Accepte</strong></a>
+               <a href="{{url('admin/refuser/seance',$demande->id)}}" class="btn btn-danger" style="background-color: crimson;color:aliceblue"><strong>Refuser</strong></a>
 
             </div>
           </td>

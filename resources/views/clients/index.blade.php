@@ -3,9 +3,10 @@
 <h2 class="display-6">clients list</h2>
 <a href="{{route('clients.create')}}" class=" btn btn-primary pull-right" style="background-color:green;float:right"><i class="fa fa-plus"></i>Client</a>
 <hr/>
-  <div class="row">
-    <div class="col-md-12 col-md-offset-1">
-      <table class="table table-bordered table-responsive table-striped">
+<div class="container">
+  <div class="row my-5">
+    <div class=" col-md-10">
+      <table class="table-bordered  table-striped" id ="Mwanj">
         <thead>
         <tr>
           <th>Client Id</th>
@@ -15,9 +16,9 @@
           <th>Actions</th>
         </thead>
         <tbody>
-        @foreach($clients as $client)
+        @foreach($clients as $key => $client)
         <tr>
-          <td>{{$client->id}}</td>
+          <td>{{$key+=1}}</td>
           <td>{{$client->name}}</td>
           <td>{{$client->email}}</td>
           <td>{{$client->salle->name}}</td>
@@ -40,4 +41,5 @@
     </div>
   </div>
 
+</div>
 @endsection

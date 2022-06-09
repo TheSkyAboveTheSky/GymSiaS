@@ -142,11 +142,11 @@ class AppServiceProvider extends ServiceProvider
             ],
             );
             $event->menu->add([
-                'text' => 'Change Creneau',
-                'url'  => '#',
+                'text' => 'Demandes Changement Creneaux',
+                'url'  => 'admin/demandes_creneau',
             ]);
             $event->menu->add([
-                'text' => 'Deamndes d\'acces au seances',
+                'text' => 'Demandes d\'acces au seances',
                 'url'  => 'admin/demandes_acces',
             ]);
             $event->menu->add([

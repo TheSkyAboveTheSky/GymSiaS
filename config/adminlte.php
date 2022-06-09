@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'MounTor',
+    'title' => 'GymSIAS',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Moun</b>Tor',
+    'logo' => '<b>Gym</b>SIAS',
     'logo_img' => 'http://127.0.0.1:8000/images/logo.png',
     'logo_img_class' => 'brand-image-xl  elevation-0',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'MounTor',
+    'logo_img_alt' => 'GymSIAS',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/user/profile',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',

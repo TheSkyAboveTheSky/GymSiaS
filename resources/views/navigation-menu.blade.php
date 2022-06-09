@@ -39,29 +39,36 @@
                 
                 @endif
                 @if (Auth::user()->role_id === 2)
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/user/profile" :active="request()->routeIs('dashboard')">
+                        {{ __(Auth::user()->name) }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/admin/dashboard" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/admin/clients" :active="request()->routeIs('dashboard')">
                         {{ __('Clients') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Seances') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/coachs" :active="request()->routeIs('dashboard')">
                         {{ __('Coachs') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/salles" :active="request()->routeIs('dashboard')">
                         {{ __('Salles') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Demandes Creneau') }}
+                    <x-jet-nav-link href="/admin/seances" :active="request()->routeIs('planning')">
+                        {{ __('Seances') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
-                        {{ __('Planning') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/aboneements" :active="request()->routeIs('dashboard')">
                         {{ __('Abonnements') }}
                     </x-jet-nav-link>
-
-                
+                    <x-jet-nav-link href="/admin/demandes_creneau" :active="request()->routeIs('dashboard')">
+                        {{ __('Demandes Changement Creneaux') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/admin/demandes_acces" :active="request()->routeIs('dashboard')">
+                        {{ __('Demandes d\'acces au seances') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/planning" :active="request()->routeIs('dashboard')">
+                        {{ __('Planning') }}
+                    </x-jet-nav-link>                
                 @endif
             </div>
             </div>

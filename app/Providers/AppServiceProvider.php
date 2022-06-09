@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
                 'text' => 'Dashboard',
                 'url'  => 'admin/dashboard',
                 'icon' => 'fa fa-chart-bar',
-                'img' => 'red',
+                'img' => 'red ',
             ]);
             $event->menu->add('Users Management');
             $event->menu->add([

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DemandeAcces;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Seance;
 
 class DemandeAccesController extends Controller
 {
@@ -33,9 +35,13 @@ class DemandeAccesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function demande(Request $request)
     {
-        //
+        $DemandeAcces = new DemandeAcces;
+        $DemandeAcces->user_id = Auth::user()->id;
+        $DemandeAcces->seance_id = $request->seance_id;
+        $DemandeAcces->save();
+        return redirect()->route('client-seances');
     }
 
     /**
@@ -86,6 +92,7 @@ class DemandeAccesController extends Controller
         $demande = DemandeAcces::where('id',$id)->first();
         $demande->Etatdemande=2;
         $demande->save();
+        $seance = Seance::where('id',$demande->seance_id);
         return redirect()->route('admin-demandes_acces');
     }
     public function refuser(Request $request ,$id){

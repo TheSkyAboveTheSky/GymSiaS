@@ -15,8 +15,8 @@
 @endif
 
 
-    <form method="POST" action="http://127.0.0.1:8000/admin/abonnements/2" accept-charset="UTF-8"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
-      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+    <form method="POST" action="http://127.0.0.1:8000/admin/abonnements/{{$abonnement->id}}" accept-charset="UTF-8"><input name="_method" type="hidden" value="PUT">
+      @csrf
       <div class="form-group">
         <label for="duree">Abonnement Duree</label>
         <input class="form-control" name="duree" type="text" value="{{ old('duree', $abonnement->duree)}}" id="duree">

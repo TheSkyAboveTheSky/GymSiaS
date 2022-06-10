@@ -1,7 +1,6 @@
 @extends('adminlte::page')
 @section('content')
 <h2 class="display-6">Seances list</h2>
-<a href="{{route('seances.create')}}" class=" btn btn-primary pull-right" style="background-color:green;float:right"><i class="fa fa-plus"></i>Seance</a>
 <hr/>
   <div class="row">
     <div class="col-md-12 col-md-offset-1">
@@ -14,7 +13,7 @@
           <th>Seance End</th>
           <th>Coach</th>
           <th>Salle</th>
-          <th>Actions</th>
+          <th>Demande d'Acces</th>
         </thead>
         <tbody>
         @foreach($seances as $seance)
@@ -26,15 +25,8 @@
           <td>{{$seance->coach->name}}</td>
           <td>{{$seance->salle->name}}</td>
           <td>
-             <div class="d-flex">
-                <a href="{{route('seances.show', $seance->id)}}" class="btn btn-info m-1">Details</a>
-                <a href="{{route('seances.edit', $seance->id)}}" class="btn btn-primary m-1">Edit</a>
-
-                <form action="{{ route('seances.destroy', $seance->id) }}" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button class="btn btn-danger m-1">Delete Seance</button>
-                </form>
+            <div class="d-flex">
+              <a href="{{url('client/demandesacces',$seance->id)}}" class="btn btn-info m-1">Demande D'Acess</a>
             </div>
           </td>
         </tr>

@@ -13,10 +13,9 @@
     </ul>
 </div>
 @endif
-    <form method="POST" action="http://127.0.0.1:8000/admin/coachs" accept-charset="UTF-8"><input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
+    <form method="POST" action="http://127.0.0.1:8000/admin/coachs" accept-charset="UTF-8"><input name="_token" type="hidden">
 
-      <input name="_token" type="hidden" value="ftuwFLP9YjZbOHNR5eIWl38JQjtvQt6RXI2HqKwi">
-  
+      @csrf
       
 
       <div class="form-group">

@@ -33,7 +33,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
+Route::get('/planning',function(){
+    return view('planning');
+});
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/dashboard', function () {

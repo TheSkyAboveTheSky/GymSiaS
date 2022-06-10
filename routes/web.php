@@ -127,10 +127,18 @@ Route::prefix('coach')->middleware('auth')->group(function () {
     })->name('coach-dashboard');
    Route::get('/messeances',function(){
        $seances = Seance::where('coach_id',Auth::user()->id)->get();
-       return view('livewire/messeances')->with([
+       return view('coach/messeances')->with([
            'seances' => $seances,
        ]);
    })->name('coach-seances');
-   Route::get('/demandescreneau/{seance_id}', 'DemandeCreneauController@demande');
-   Route::get('/demandescreneauform', 'DemandeCreneauController@demandec');
+   Route::get('/demandescreneau/{id}', function(){
+    return view('coach/demande');
+   });
+   Route::get('mesdemandes',function(){
+    $demandes =DemandeCreneau::where('Etatdemande','!=',1)->get();
+    return view('coach/mesdemandes')->with([
+        'demandes' => $demandes,
+    ]);
+   });
 });
+Route::post('/save','DemandeCreneauController@demandec');

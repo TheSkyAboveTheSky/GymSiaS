@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\DemandeCreneau;
 use Livewire\Component;
 
 class Demande extends Component
@@ -23,7 +24,15 @@ class Demande extends Component
   }
   public function Demande()
   {
-
+    $fields = $this->validate([
+      'salle_id' => 'required|numeric',
+      'seance_id' => 'required|numeric',
+      'coach_id' => 'required|numeric',
+      'weekday' => 'required|numeric',
+      'start_time' =>'required',
+      'end_date' =>'required',
+    ]);
+    DemandeCreneau::create($fields);
   }  
   public function render()
     {

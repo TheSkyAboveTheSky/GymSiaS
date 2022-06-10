@@ -39,15 +39,21 @@
                 </x-jet-nav-link>
                 @endif
                 @if (Auth::user()->role_id === 1)
-                    <x-jet-nav-link href="{{ route('dashboard') }}">
-                        {{ __('Coach_dashboard') }}
+                    <x-jet-nav-link href="/coach/dashboard">
+                        {{ __(Auth::user()->name) }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}">
-                        {{ __('Seances') }}
+                    <x-jet-nav-link href="/coach/dashboard">
+                        {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="/planning">
                         {{ __('Planning') }}
-                    </x-jet-nav-link>     
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/coach/messeances">
+                        {{ __('Mes Seances') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="/coach/mesdemandes">
+                        {{ __('Mes Demandes') }}
+                    </x-jet-nav-link>         
                 
                 @endif
                 @if (Auth::user()->role_id === 2)

@@ -24,7 +24,7 @@
           <td>{{$seance->salle->name}}</td>
           <td>
             <div class="d-flex">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new">Demande De Changement</a>
+              <a href={{url('coach/demandescreneau',$seance->id)}} class="btn btn-succes" style="background-color: green;color:aliceblue;margin-right:4px;">Demande De Changement</a>
             </div>
           </td>
         </tr>

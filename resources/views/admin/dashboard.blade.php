@@ -11,7 +11,7 @@
 <div class="small-box bg-info">
 <div class="inner">
 <h3>+{{$clients}}</h3>
-<p>Clients</p>
+<p>Numnber Of Clients</p>
 </div>
 <div class="icon">
 <i class="ion ion-bag"></i>
@@ -25,7 +25,7 @@
 <div class="small-box bg-success">
 <div class="inner">
 <h3>+{{$coachs}}</h3>
-<p>Coachs</p>
+<p>Number Of Coachs</p>
 </div>
 <div class="icon">
 <i class="ion ion-stats-bars"></i>
@@ -39,7 +39,7 @@
 <div class="small-box bg-warning">
 <div class="inner">
 <h3>+{{$salles}}</h3>
-<p>Salles</p>
+<p>Number Of Salles</p>
 </div>
 <div class="icon">
 <i class="ion ion-person-add"></i>
@@ -52,7 +52,7 @@
   <div class="small-box bg-danger">
   <div class="inner">
   <h3>+{{$seances}}</h3>
-  <p>Seances</p>
+  <p>Number Of Seances</p>
   </div>
   <div class="icon">
   <i class="ion ion-stats-bars"></i>
@@ -66,7 +66,7 @@
   <div class="small-box bg-info">
   <div class="inner">
   <h3>+{{$abonnements}}</h3>
-  <p>Abonnement</p>
+  <p>Number Of Abonnement</p>
   </div>
   <div class="icon">
   <i class="ion ion-stats-bars"></i>
@@ -80,7 +80,7 @@
     <div class="small-box bg-success">
     <div class="inner">
     <h3>+{{$month}}</h3>
-    <p>Clients this Month</p>
+    <p>Clients Joined this Month</p>
     </div>
     <div class="icon">
     <i class="ion ion-stats-bars"></i>
@@ -94,7 +94,7 @@
       <div class="small-box bg-warning">
       <div class="inner">
       <h3>+{{$year}}</h3>
-      <p>Clients this Year</p>
+      <p>Clients Joined this Year</p>
       </div>
       <div class="icon">
       <i class="ion ion-stats-bars"></i>

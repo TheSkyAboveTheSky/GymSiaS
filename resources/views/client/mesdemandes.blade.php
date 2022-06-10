@@ -17,6 +17,7 @@
         </thead>
         <tbody>
           @foreach($demandes as $demande)
+          @if ($demande->user_id == Auth::user()->id)
           <tr>
             <td>{{$demande->seance->id}}</td>
             <td>{{$demande->seance->weekday}}</td>
@@ -32,6 +33,7 @@
               @endif
             <td>
           </tr>
+          @endif
           @endforeach
 
       </tbody>

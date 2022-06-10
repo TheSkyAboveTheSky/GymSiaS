@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DemandeCreneauController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -113,8 +114,10 @@ class DemandeCreneauController extends Controller
     }
     public function demandec(Request $request)
     {
+        $demande = new DemandeCreneau();
         $input = $request->all();
-        DemandeCreneau::create($input);
+        $demande->fill($input);
+        $demande->save();
         return redirect()->route('coach-seances');
     }
 }

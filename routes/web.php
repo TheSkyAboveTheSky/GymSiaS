@@ -122,6 +122,12 @@ Route::prefix('client')->middleware('auth')->group(function () {
             'demandes'=> $demandes,
         ]);
     })->name('client-mesdemandes');
+    Route::get('/offres',function () {
+        $abonnements=Abonnement::all();
+        return view('client/offres')->with([
+            'abonnements'=> $abonnements
+        ]);
+    })->name('client-offres');
 });
 Route::prefix('coach')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {

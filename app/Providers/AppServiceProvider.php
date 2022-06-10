@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
                 ]);
                 $event->menu->add([
                     'text' => 'Offres',
-                    'url'  => '#',
+                    'url'  => '/client/offres',
                     'icon' => 'fa fa-gift',
                     'icon_color' =>'blue'
                 ]);

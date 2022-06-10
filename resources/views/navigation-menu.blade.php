@@ -31,10 +31,10 @@
                 <x-jet-nav-link href="/client/mesdemandes">
                     {{ __('Mes Demandes') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="#">
+                <x-jet-nav-link href="/client/offres'">
                     {{ __('Offres') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="">
+                <x-jet-nav-link href="/planning">
                     {{ __('Planning') }}
                 </x-jet-nav-link>
                 @endif

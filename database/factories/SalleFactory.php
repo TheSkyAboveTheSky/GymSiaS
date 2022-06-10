@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class SalleFactory extends Factory
 {
@@ -14,8 +15,8 @@ class SalleFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>'Mwanj',
-            'adresse'=>'casablanca',
+            'name' => $this->faker->name(),
+            'adresse'=>Str::random(10),
         ];
     }
 }

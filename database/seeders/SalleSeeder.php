@@ -16,7 +16,7 @@ class SalleSeeder extends Seeder
     {
         //
         Salle::factory()
-        ->count(1)
+        ->count(100)
         ->create();
     }
 }

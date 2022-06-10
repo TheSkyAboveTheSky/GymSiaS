@@ -8,6 +8,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminFactory extends Factory
@@ -27,13 +28,13 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            //
             'role_id'=>2,
-            'name' => 'admin2',
-            'email' => 'admin2@test.org',
+            'name' => 'admin',
+            'email' => 'admin@test.org',
             'email_verified_at' => now(),
-            'password' => '12345678', // password
+            'password' => Hash::make('12345678'), 
             'remember_token' => Str::random(10),
+            'salle_id' => 1,
         ];
     }
 }

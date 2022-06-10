@@ -14,7 +14,7 @@ class CoachFactory extends Factory
     public function definition()
     {
         return [
-            //
+            
         ];
     }
 }

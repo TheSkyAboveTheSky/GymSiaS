@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -28,18 +29,19 @@ class UserFactory extends Factory
         $num = rand(0,4);
         $date = Carbon::today()->subYears($num);
         $exp = Carbon::today()->subYears($num)->addMonths($ab);
-
+        $om =rand(0,1);
+        $sall =rand(1,10);
         return [
-            'role_id'=>0,
+            'role_id'=>$om,
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '12345678', // password
+            'password' => Hash::make('12345678'), 
             'remember_token' => Str::random(10),
             'duree_abonement_in_months'=>$ab,
             'date_debut_abonnement'=>$date,
             'abonnement_expired_at'=> $exp,
-            'salle_id'=>1
+            'salle_id'=>$sall,
         ];
     }
 

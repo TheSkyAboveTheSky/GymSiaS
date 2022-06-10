@@ -14,7 +14,7 @@ class AbonnementFactory extends Factory
     public function definition()
     {
         return [
-            //
+            
         ];
     }
 }

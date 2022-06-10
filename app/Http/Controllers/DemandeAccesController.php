@@ -101,4 +101,5 @@ class DemandeAccesController extends Controller
         $demande->save();
         return redirect()->route('admin-demandes_acces');
     }
+    
 }

@@ -105,7 +105,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 });
 Route::prefix('client')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('client/dashboard');
+        $today = Carbon::now();
+        return view('client/dashboard')->with([
+            'today' => $today,
+        ]);
     })->name('client-dashboard');
     Route::get('/coachs', function () {
         $coachs = User::where('role_id', 1)->get();
@@ -128,4 +131,10 @@ Route::prefix('client')->middleware('auth')->group(function () {
             'demandes'=> $demandes,
         ]);
     })->name('client-messeances');
+    Route::get('/mesdemandes', function () {
+        $demandes =DemandeAcces::where('Etatdemande','!=',1)->get();
+        return view('client/mesdemandes')->with([
+            'demandes'=> $demandes,
+        ]);
+    })->name('client-mesdemandes');
 });

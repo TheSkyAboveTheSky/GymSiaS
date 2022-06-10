@@ -49,6 +49,18 @@ class AppServiceProvider extends ServiceProvider
                     'url'  => '/client/coachs',
                     'icon' => 'fa fa-list',
                 ]);
+                $event->menu->add([
+                    'text' => 'Planning',
+                    'url'  => '/planning',
+                    'icon' => 'fa fa-calendar',
+                    'icon_color' =>'yellow'
+                ]);
+                $event->menu->add([
+                    'text' => 'Offres',
+                    'url'  => '#',
+                    'icon' => 'fa fa-calendar',
+                    'icon_color' =>'yellow'
+                ]);
                 $event->menu->add('Seances');
                 $event->menu->add([
                     'text' => 'Tous Les Seances',
@@ -62,6 +74,13 @@ class AppServiceProvider extends ServiceProvider
                     'icon' => 'fa fa-list',
                     'icon_color' => 'orange',
                 ]);
+                $event->menu->add([
+                    'text' => 'Mes Demandes',
+                    'url'  => '/client/mesdemandes',
+                    'icon' => 'fa fa-list',
+                    'icon_color' => 'orange',
+                ]);
+
 
             }
             

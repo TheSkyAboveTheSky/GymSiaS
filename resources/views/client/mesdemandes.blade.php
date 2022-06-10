@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content')
-<h2 class="display-6">Seances list</h2>
+<h2 class="display-6">Demandes   list</h2>
 <hr/>
   <div class="row">
     <div class="col-md-12 col-md-offset-1">
@@ -13,19 +13,9 @@
           <th>Seance End</th>
           <th>Coach</th>
           <th>Salle</th>
+          <th>Etat</th>
         </thead>
         <tbody>
-        @foreach($seances as $seance)
-        <tr>
-          <td>{{$seance->id}}</td>
-          <td>{{$seance->weekday}}</td>
-          <td>{{$seance->start_time}}</td>
-          <td>{{$seance->end_time}}</td>
-          <td>{{$seance->coach->name}}</td>
-          <td>{{$seance->salle->name}}</td>
-          </td>
-        </tr>
-        @endforeach
           @foreach($demandes as $demande)
           <tr>
             <td>{{$demande->seance->id}}</td>
@@ -34,6 +24,13 @@
             <td>{{$demande->seance->end_time}}</td>
             <td>{{$demande->seance->coach->name}}</td>
             <td>{{$demande->seance->salle->name}}</td>
+            <td>
+              @if ($demande->Etatdemande == 0)
+              <p style="color: crimson">Refusée</p>
+              @elseif($demande->Etatdemande == 2)
+              <p style="color:green">Acceptée</p>
+              @endif
+            <td>
           </tr>
           @endforeach
 

@@ -13,60 +13,72 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 @if (Auth::user()->role_id === 0)
-                    <x-jet-nav-link href="{{ route('coachs') }}" :active="request()->routeIs('coachs')">
-                        {{ __('Coachs List') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Offres') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Seances') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
-                        {{ __('Planning') }}
-                    </x-jet-nav-link>
+                <x-jet-nav-link href="/user/profile">
+                    {{ __(Auth::user()->name) }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="/client/dashboard">
+                    {{ __('Dashboard') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="/client/coachs">
+                    {{ __('Coachs list') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="/client/seances">
+                    {{ __('Tous Les Seances') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="/client/messeances">
+                    {{ __('Mes Seances') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="/client/mesdemandes">
+                    {{ __('Mes Demandes') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="#">
+                    {{ __('Offres') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="">
+                    {{ __('Planning') }}
+                </x-jet-nav-link>
                 @endif
                 @if (Auth::user()->role_id === 1)
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard') }}">
                         {{ __('Coach_dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard') }}">
                         {{ __('Seances') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('planning') }}" :active="request()->routeIs('planning')">
+                    <x-jet-nav-link href="/planning">
                         {{ __('Planning') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link>     
                 
                 @endif
                 @if (Auth::user()->role_id === 2)
-                    <x-jet-nav-link href="/user/profile" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/user/profile">
                         {{ __(Auth::user()->name) }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/dashboard" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/dashboard">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/clients" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/clients">
                         {{ __('Clients') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/coachs" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/coachs">
                         {{ __('Coachs') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/salles" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/salles">
                         {{ __('Salles') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/seances" :active="request()->routeIs('planning')">
+                    <x-jet-nav-link href="/admin/seances">
                         {{ __('Seances') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/aboneements" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/aboneements">
                         {{ __('Abonnements') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/demandes_creneau" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/demandes_creneau">
                         {{ __('Demandes Changement Creneaux') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/admin/demandes_acces" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/admin/demandes_acces">
                         {{ __('Demandes d\'acces au seances') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/planning" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="/planning">
                         {{ __('Planning') }}
                     </x-jet-nav-link>                
                 @endif
@@ -192,7 +204,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('dashboard') }}">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>

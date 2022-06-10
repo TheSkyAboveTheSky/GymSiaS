@@ -24,19 +24,6 @@ use Carbon\carbon;
 */
 
 Route::get('/', 'HomeController@checkUserType');
-Route::get('/bar', function () {
-    return view('layouts.bar');
-});
-Route::get('/index', function () {
-    $salles = Salle::all();
-    $users = User::all();
-    return view('index')->with([
-        'salles' => $salles,
-        'users' => $users,
-    ]);
-});
-Route::get('/coachs', 'PagesController@coachs')->name('coachs');
-Route::get('/planning', 'PagesController@planning')->name('planning');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -46,10 +33,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::get('/coach/dashboard', function () {
-    return view('coach/dashboard');
-})->name('coach-dashboard');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -137,4 +120,17 @@ Route::prefix('client')->middleware('auth')->group(function () {
             'demandes'=> $demandes,
         ]);
     })->name('client-mesdemandes');
+});
+Route::prefix('coach')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('coach/dashboard');
+    })->name('coach-dashboard');
+   Route::get('/messeances',function(){
+       $seances = Seance::where('coach_id',Auth::user()->id)->get();
+       return view('livewire/messeances')->with([
+           'seances' => $seances,
+       ]);
+   })->name('coach-seances');
+   Route::get('/demandescreneau/{seance_id}', 'DemandeCreneauController@demande');
+   Route::get('/demandescreneauform', 'DemandeCreneauController@demandec');
 });

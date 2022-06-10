@@ -58,8 +58,8 @@ class AppServiceProvider extends ServiceProvider
                 $event->menu->add([
                     'text' => 'Offres',
                     'url'  => '#',
-                    'icon' => 'fa fa-calendar',
-                    'icon_color' =>'yellow'
+                    'icon' => 'fa fa-gift',
+                    'icon_color' =>'blue'
                 ]);
                 $event->menu->add('Seances');
                 $event->menu->add([
@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Mes Seances',
                     'url'  => '/client/messeances',
                     'icon' => 'fa fa-list',
-                    'icon_color' => 'orange',
+                    'icon_color' => 'green',
                 ]);
                 $event->menu->add([
                     'text' => 'Mes Demandes',
@@ -83,7 +83,38 @@ class AppServiceProvider extends ServiceProvider
 
 
             }
-            
+            if(Auth::user()->role_id == 1){
+                $event->menu->add([
+                    'text' => Auth::user()->name,
+                    'url'  => 'user/profile',
+                    'icon' => 'fa fa-user',
+                ]);
+                $event->menu->add([
+                    'text' => 'Dashboard',
+                    'url'  => '/coach/dashboard',
+                    'icon' => 'fa fa-chart-bar',
+                    'img' => 'red ',
+                ]);
+                $event->menu->add([
+                    'text' => 'Planning',
+                    'url'  => '/planning',
+                    'icon' => 'fa fa-calendar',
+                    'icon_color' =>'yellow'
+                ]);
+                $event->menu->add('Creneaux');
+                $event->menu->add([
+                    'text' => 'Mes Seances',
+                    'url'  => '/coach/messeances',
+                    'icon' => 'fa fa-list',
+                    'icon_color' => 'green',
+                ]);
+                $event->menu->add([
+                    'text' => 'Mes Demandes',
+                    'url'  => '/coach/mesdemandes',
+                    'icon' => 'fa fa-list',
+                    'icon_color' => 'orange',
+                ]);
+            }
             if (Auth::user()->role_id === 2){
                 $event->menu->add([
                     'text' => Auth::user()->name,

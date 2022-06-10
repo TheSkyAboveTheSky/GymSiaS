@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DemandeCreneau;
 use Illuminate\Http\Request;
 use App\Models\Seance;
+use Illuminate\Support\Facades\Auth;
 
 class DemandeCreneauController extends Controller
 {
@@ -100,5 +101,20 @@ class DemandeCreneauController extends Controller
         $demande->Etatdemande=0;
         $demande->save();
         return redirect()->route('admin-demandes_creneau');
+    }
+    public function demande(Request $request)
+    {
+        $seance_id = $request->seance_id;
+        $salle_id = $request->salle_id;
+        return view('coach/demande')->with([
+            'seances_id' => $seance_id,
+            'salle_id'   => $salle_id,
+        ]);
+    }
+    public function demandec(Request $request)
+    {
+        $input = $request->all();
+        DemandeCreneau::create($input);
+        return redirect()->route('coach-seances');
     }
 }

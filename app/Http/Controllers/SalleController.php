@@ -111,4 +111,10 @@ class SalleController extends Controller
 
         return redirect()->route("salles.index");
     }
+    public function search(){
+        $search_text = $_GET['querysalle'];
+        $salles = Salle::where('name','LIKE','%'.$search_text.'%')
+        ->get();
+        return view('salles.search',compact('salles'));
+    }
 }

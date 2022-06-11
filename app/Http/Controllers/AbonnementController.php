@@ -117,4 +117,10 @@ class AbonnementController extends Controller
 
         return redirect()->route("abonnements.index");
     }
+    public function search(){
+        $search_text = $_GET['queryabonnement'];
+        $abonnements = Abonnement::where('id','LIKE','%'.$search_text.'%')
+        ->get();
+        return view('abonnements.search',compact('abonnements'));
+    }
 }

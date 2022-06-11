@@ -38,7 +38,7 @@
       </div>
 
       <div class="form-group">
-        <label for="role_id">Coach Role</label>
+        <label for="role_id"></label>
         <input class="form-control" name="role_id"  value="1" id="role_id" type="hidden">
       </div>
 

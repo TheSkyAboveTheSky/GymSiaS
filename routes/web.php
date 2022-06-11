@@ -44,10 +44,18 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         $salles = Salle::count();
         $seances = Seance::count();
         $abonnements = Abonnement::count();
-        $month = User::whereBetween('date_debut_abonnement', [Carbon::now()->subMonth(), Carbon::now()])->count();
-        $year = User::whereBetween('date_debut_abonnement', [Carbon::now()->subYear(), Carbon::now()])->count();
-        $active = User::wheredate('abonnement_expired_at', '>', Carbon::now())->count();
-        $inactive = User::wheredate('abonnement_expired_at', '<', Carbon::now())->count();
+        $month = User::whereBetween('date_debut_abonnement', [Carbon::now()->subMonth(), Carbon::now()])
+        ->where('role_id',0)
+        ->count();
+        $year = User::whereBetween('date_debut_abonnement', [Carbon::now()->subYear(), Carbon::now()])
+        ->where('role_id',0)
+        ->count();
+        $active = User::wheredate('abonnement_expired_at', '>=', Carbon::now())
+        ->where('role_id',0)
+        ->count();
+        $inactive = User::wheredate('abonnement_expired_at', '<', Carbon::now())
+        ->where('role_id',0)
+        ->count();
 
         return view('admin/dashboard')->with([
             'clients' => $clients,
@@ -150,3 +158,8 @@ Route::prefix('coach')->middleware('auth')->group(function () {
    });
 });
 Route::post('/save','DemandeCreneauController@demandec');
+Route::get('/searchclients','ClientController@search');
+Route::get('/searchcoachs','CoachController@search');
+Route::get('/searchsalles','SalleController@search');
+Route::get('/searchseances','SeanceController@search');
+Route::get('/searchabonnements','AbonnementController@search');

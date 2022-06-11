@@ -125,4 +125,11 @@ class ClientController extends Controller
 
         return redirect()->route("clients.index");
     }
+    public function search(){
+        $search_text = $_GET['queryclient'];
+        $clients = User::where('name','LIKE','%'.$search_text.'%')
+        ->where('role_id',0)
+        ->get();
+        return view('clients.search',compact('clients'));
+    }
 }

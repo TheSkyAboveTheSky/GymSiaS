@@ -128,4 +128,10 @@ class SeanceController extends Controller
 
         return redirect()->route("seances.index");
     }
+    public function search(){
+        $search_text = $_GET['queryseance'];
+        $seances = Seance::where('id','LIKE','%'.$search_text.'%')
+        ->get();
+        return view('seances.search',compact('seances'));
+    }
 }

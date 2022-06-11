@@ -115,4 +115,11 @@ class CoachController extends Controller
 
         return redirect()->route("coachs.index");
     }
+    public function search(){
+        $search_text = $_GET['querycoach'];
+        $coachs = User::where('name','LIKE','%'.$search_text.'%')
+        ->where('role_id',1)
+        ->get();
+        return view('coachs.search',compact('coachs'));
+    }
 }

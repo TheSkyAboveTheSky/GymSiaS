@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 @section('content')
 <form class="form-inline my-2 my-lg-0"  type="get" action="{{url('/searchclients')}}">
-  <input class="form-control mr-sm-2" type="search" name="queryclient"  placeholder="Search" aria-Label="">
+  <input class="form-control mr-sm-2" type="search" name="queryclient" placeholder="Search" aria-Label="">
   <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
 </form>
 <h2 class="display-6">Clients list</h2>
-<a href="{{route('clients.create')}}" class=" btn btn-primary pull-right" style="background-color:green;float:right"><i class="fa fa-plus"></i>Client</a>
+<a href="{{route('clients.create')}}" class=" btn btn-primary ml-10 mb-10" style="background-color:green;float:right"><i class="fa fa-plus"></i>Client</a>
 <hr/>
 <div class="row">
   <div class="col-md-16 col-md-offset-1">

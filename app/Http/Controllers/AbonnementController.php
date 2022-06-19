@@ -59,6 +59,7 @@ class AbonnementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*Show Abonnement*/
     public function show($id)
     {
         $abonnement = Abonnement::findOrFail($id);
@@ -71,6 +72,7 @@ class AbonnementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*Edit an abonnement*/
     public function edit($id)
     {
         //
@@ -89,6 +91,7 @@ class AbonnementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*Update an abonnment */
     public function update(Request $request, $id)
     {
         //
@@ -110,6 +113,9 @@ class AbonnementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    /*Delete an abonnement */
     public function destroy($id)
     {
         $abonnement = Abonnement::findOrFail($id);
@@ -117,6 +123,7 @@ class AbonnementController extends Controller
 
         return redirect()->route("abonnements.index");
     }
+    /*Search Function : cherche dans le tableau des abonnements */
     public function search(){
         $search_text = $_GET['queryabonnement'];
         $abonnements = Abonnement::where('id','LIKE','%'.$search_text.'%')

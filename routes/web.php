@@ -24,6 +24,7 @@ use Carbon\carbon;
 */
 
 Route::get('/', 'HomeController@checkUserType');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -33,9 +34,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 Route::get('/planning',function(){
     return view('planning');
 });
+/*Admin*/
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/dashboard', function () {
@@ -96,6 +99,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/accepter/creneau/{id}', 'DemandeCreneauController@accepter');
     Route::get('/refuser/creneau/{id}', 'DemandeCreneauController@refuser');
 });
+
+/*Client*/
 Route::prefix('client')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         $today = Carbon::now();
@@ -137,6 +142,7 @@ Route::prefix('client')->middleware('auth')->group(function () {
         ]);
     })->name('client-offres');
 });
+/*Coach*/
 Route::prefix('coach')->middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('coach/dashboard');
@@ -157,6 +163,7 @@ Route::prefix('coach')->middleware('auth')->group(function () {
     ]);
    });
 });
+/**/
 Route::post('/save','DemandeCreneauController@demandec');
 Route::get('/searchclients','ClientController@search');
 Route::get('/searchcoachs','CoachController@search');
